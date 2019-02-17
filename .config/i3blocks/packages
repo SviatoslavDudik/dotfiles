@@ -1,0 +1,8 @@
+#!/bin/bash
+
+case $BLOCK_BUTTON in
+	1) st /home/archie/.config/i3blocks/upgrade ;;
+	3) notify-send "$(/usr/bin/pacman -Qu)" ;;
+esac
+
+pacman -Qu | grep -v "\[ignored\]" | wc -l | sed -e 's/^0$//g'

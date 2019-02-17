@@ -1,0 +1,23 @@
+#auto-reload yes
+
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key x pb-delete
+
+browser "qutebrowser "
+macro v set browser "i3 exec vlc"; open-in-browser ; set browser browser
+macro w set browser "w3m"; open-in-browser ; set browser browser
+macro d set browser "st youtube-dl %u &" ; open-in-browser ; set browser browser
+

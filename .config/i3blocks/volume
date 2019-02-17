@@ -1,0 +1,9 @@
+#!/bin/bash
+
+volume=$(pactl list sinks | grep "^[[:space:]]Volume" | head -n 1 | sed -e 's,.* \([0-9][0-9]*%\).*,\1,') || exit
+sourdine=$(pactl list sinks | grep "^[[:space:]]Sourdine" | sed -e 's,.*: \([[:alpha:]]*\).*,\1,;s,oui,1,;s,non,0,')
+
+if [ $sourdine -gt 0 ]; then
+	echo 🔇
+fi
+echo 🔊 $volume

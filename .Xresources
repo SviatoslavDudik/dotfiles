@@ -1,0 +1,45 @@
+*alpha:				180
+*foreground:		#ffffff
+*foreground_bold:	#888888
+*cursor:			#888888
+
+!!!! black
+*.color0:	#000000
+*.color8:	#928374
+!!!! red
+*.color1:	#cc241d
+*.color9:	#fb4934
+!!!! green
+*.color2:	#98971a
+*.color10:	#b8bb26
+!!!! yellow
+*.color3:	#d79921
+*.color11:	#fabd2f
+!!!! blue
+*.color4:	#458588
+*.color12:	#83a598
+!!!! magenta
+*.color5:	#b16286
+*.color13:	#d3869b
+!!!! cyan
+*.color6:	#689d6a
+*.color14:	#8ec07c
+!!!! white
+*.color7:	#a89984
+*.color15:	#ebdbb2
+
+
+rofi.lines:				3
+rofi.eh:				2
+rofi.padding:			250
+rofi.fullscreen:		true
+rofi.bw:				0
+rofi.separator-style:	none
+rofi.hide-scrollbar:	true
+
+rofi.font:			System San Francisco Display 18
+rofi.color-enabled:	true
+rofi.color-window:	argb:cc2f343f, argb:cc2f343f, argb:cc2f343f
+rofi.color-normal:	argb:002f343f, #d8dee8, argb:002f343f, argb:002f343f, #bf616a
+rofi.color-active:	#2f343f, #b48ead, #2f343f, #2f343f, #93e5cc
+rofi.color-urgent:	#2f343f, #ebcb8b, #2f343f, #2f343f, #ebcb8b

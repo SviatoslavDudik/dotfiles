@@ -1,0 +1,22 @@
+#!/bin/bash
+
+capacity=$(cat /sys/class/power_supply/BAT0/capacity) || exit
+status=$(cat /sys/class/power_supply/BAT0/status)
+
+if [ "$capacity" -ge 75 ]; then
+	color="#00bc00"
+elif [ "$capacity" -ge 50 ]; then
+	color="#dfdfdf"
+elif [ "$capacity" -ge 25 ]; then
+	color="#eeff00"
+else
+	color="#ef0000"
+	warn="❗"
+fi
+
+[ -z $warn ] && warn=" "
+
+[ "$status" = "Charging" ] && color="#00bc00"
+
+printf "<span color='%s'>%s%s%s</span>" "$color" "$(echo "$status" | sed -e "s/,//g;s/Discharging/🔋/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
+

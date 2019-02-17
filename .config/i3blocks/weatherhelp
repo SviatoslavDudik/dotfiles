@@ -1,0 +1,6 @@
+#!/bin/bash
+
+st echo 'Weather forecast'
+xdotool key super+f
+cat /tmp/weather
+read

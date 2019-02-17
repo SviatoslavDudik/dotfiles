@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+echo "Starting upgrade"
+sudo pacman -Su
+pkill -SIGRTMIN+1 i3blocks
+echo "Upgrade completed"
+read -r
+

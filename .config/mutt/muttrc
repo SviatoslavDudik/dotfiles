@@ -1,0 +1,50 @@
+source ~/.config/mutt/aliases
+source ~/.config/mutt/pass
+
+set realname         = "Sviatoslav Dudik"
+set from             = "slavdudik303@gmail.com"
+set use_from         = yes
+
+set smtp_url         = "smtps://slavdudik303@gmail.com@smtp.gmail.com:465/"
+set imap_user        = "slavdudik303@gmail.com"
+set folder           = "imaps://slavdudik303@imap.gmail.com/"
+set spoolfile        = "+INBOX"
+set ssl_force_tls    = yes
+
+set header_cache     = "~/.cache/mutt"
+set message_cachedir = "~/.cache/mutt"
+set postponed        = "+[Gmail]/Drafts"
+
+unset imap_passive
+set imap_check_subscribed
+
+set imap_keepalive   = 300
+set mail_check       = 300
+
+set beep             = no
+set editor           = "vim"
+set charset          = "utf-8"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+mono bold bold
+mono underline underline
+mono indicator reverse
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.s'
+color index_size green default
+color normal default default
+color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (http|ftp)s?://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
