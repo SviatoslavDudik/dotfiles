@@ -70,6 +70,7 @@ bindsym $mod+d          exec rofi -show run -fake-transparency
 bindsym $mod+m          exec sudo ~/.tools/mount.sh
 bindsym $mod+Shift+m    exec sudo ~/.tools/umount.sh
 bindsym $mod+g          exec ~/.tools/dmenuunicode.sh
+bindsym $mod+t          exec ~/.tools/dmenu_manpages.sh
 
 bindsym $mod+Shift+h    move left
 bindsym $mod+Shift+j    move down
@@ -95,8 +96,9 @@ bindsym $mod+e          layout toggle split
 bindsym $mod+a          [instance="math"] scratchpad show; [instance="math"] move position center
 bindsym $mod+u          [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 bindsym $mod+Shift+c    exec ~/.tools/prompt.sh 'Do you really want to reboot?' "$reboot"
-bindsym $mod+Shift+r    restart
 bindsym $mod+Shift+e    exec ~/.tools/prompt.sh 'Do you really want to shutdown?' "$shutdown"
+bindsym $mod+Shift+s    exec ~/.tools/prompt.sh 'Do you really want to hibernate?' "$hibernate"
+bindsym $mod+Shift+r    restart
 bindsym $mod+Shift+x    exec i3lock -c 2f343f
 bindsym $mod+Shift+w    exec $netrefresh
 bindsym $mod+x          [urgent=latest] focus

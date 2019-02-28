@@ -14,6 +14,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'dbeniamine/cheat.sh-vim'
 Plugin 'colorizer'
+" Plugin 'instant-markdown.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -70,6 +71,8 @@ autocmd BufEnter *.md nnoremap <leader>= 0vg_yo<Esc>pVr=j
 autocmd BufEnter *.md nnoremap <leader>- 0vg_yo<Esc>pVr-j
 autocmd BufEnter *.md nnoremap <leader># I###<Space><Esc>0j
 autocmd BufEnter *.md nnoremap d* F*xf*x
+autocmd BufEnter *.md setlocal spell spelllang=en,fr
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePost *.md :!markdown_save.sh %
