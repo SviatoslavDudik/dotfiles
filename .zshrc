@@ -3587,7 +3587,7 @@ function _simple_extract () {
         '*:Archive Or Uri:__archive_or_uri'
 }
 compdef _simple_extract simple-extract
-[[ -n "$GRML_NO_SMALL_ALIASES" ]] || alias se=simple-extract
+[[ -n "$GRML_NO_SMALL_ALIASES" ]] || alias sime=simple-extract
 
 #f5# Change the xterm title from within GNU-screen
 function xtrename () {
@@ -3777,6 +3777,7 @@ alias n="nnn"
 alias p="sudo pacman"
 alias v="vim"
 alias youtube-dl="noglob youtube-dl"
+se(){$EDITOR "$(find ~/.tools/* ~/.config/* | fzf)"}
 
 export PATH=$PATH:~/.tools
 export TERMINAL=st
