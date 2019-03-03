@@ -14,6 +14,10 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'dbeniamine/cheat.sh-vim'
 Plugin 'colorizer'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'sheerun/vim-polyglot'
 " Plugin 'instant-markdown.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -44,6 +48,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 function! FixLastSpelling()
 	setlocal spell
@@ -67,20 +72,35 @@ autocmd BufNewFile *.md :call NewMarkdown()
 autocmd BufEnter *.md inoremap ,b ****<++><Esc>F*hi
 autocmd BufEnter *.md inoremap ,s ~~~~<++><Esc>F~hi
 autocmd BufEnter *.md inoremap ,i **<++><Esc>F*i
-autocmd BufEnter *.md nnoremap <leader>= 0vg_yo<Esc>pVr=j
-autocmd BufEnter *.md nnoremap <leader>- 0vg_yo<Esc>pVr-j
+autocmd BufEnter *.md nnoremap <leader>= 0vg_"_yo<Esc>"_pVr=j
+autocmd BufEnter *.md nnoremap <leader>- 0vg_"_yo<Esc>"_pVr-j
 autocmd BufEnter *.md nnoremap <leader># I###<Space><Esc>0j
 autocmd BufEnter *.md nnoremap d* F*xf*x
 autocmd BufEnter *.md setlocal spell spelllang=en,fr
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.md setlocal textwidth=100
+autocmd BufWritePost *.md :!markdown_save.sh %
 
 autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePost *.md :!markdown_save.sh %
 
 highlight link Jump Function
 match Jump '<++>'
 nnoremap <Space><Tab> <Esc>/<++><CR>"_c4l
 vnoremap <Space><Tab> <Esc>/<++><CR>"_c4l
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+let g:pandoc#modules#disabled = ["folding"]
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
 
 "let g:airline_solarized_bg='dark'
 set bg=light
