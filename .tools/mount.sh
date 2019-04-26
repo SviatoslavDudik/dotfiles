@@ -7,6 +7,6 @@ part=$(lsblk -l | sed '1d' | grep -v "/\|disk" | awk '{printf $1 " " $4 "\n"}' |
 [ $(lsblk -l | sed '1d' | grep -v "/\|disk" | awk '{printf $1}' | grep $part | wc -l) -eq 1 ] || exit -1
 
 # Mount and send notification
-mkdir -p /run/media/archie/$part && \
-	mount -o uid=1000 /dev/$part /run/media/archie/$part && \
-	sudo -u archie DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send 'System' "$part succesfully mounted at /run/media/archie/$part"
+mkdir -p /home/archie/usb/$part && \
+	mount -o uid=1000 /dev/$part /home/archie/usb/$part && \
+	sudo -u archie DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send 'System' "$part succesfully mounted at /home/archie/usb/$part"

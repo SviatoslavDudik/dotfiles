@@ -26,11 +26,12 @@ c_file() {
 
 
 case "$file" in
-	*\.ms) pdf_file ;;
 	*\.c|*\.h) c_file ;;
-	*\.md) pdf_file ;;
 	*\.py) python "$file" ;;
 	*\.sh) "$file" ;;
+	*\.tex) pdf_file ;;
+	*\.md) pdf_file ;;
+	*\.ms) pdf_file ;;
 	*) echo "doesn't support this extention" || exit 1 ;;
 esac
 

@@ -23,11 +23,12 @@ cfile() {
 
 
 case "$file" in
-	*\.ms) refer -PS -e "$file" | groff -ms -kejpt -T pdf > "$base".pdf && update_pdf ;;
 	*\.c|*\.h) cfile ;;
-	*\.md) pandoc "$file" -o "$base".pdf && update_pdf ;;
 	*\.py) python "$file" ;;
 	*\.sh) chmod u+x "$file" ;;
+	*\.tex) latexmk -pdf "$file" && update_pdf ;;
+	*\.md) pandoc "$file" -o "$base".pdf && update_pdf ;;
+	*\.ms) refer -PS -e "$file" | groff -ms -kejpt -T pdf > "$base".pdf && update_pdf ;;
 	*) echo "doesn't support this extention" || exit 1 ;;
 esac
 
