@@ -11,7 +11,7 @@ Programs whose configs can be found here
 + i3
 + i3blocks
 + vim
-+ neomutt
++ neomutt + isync
 + newsboat
 + zsh
 + ranger
@@ -26,6 +26,8 @@ Dependencies
 + xclip
 + dunst
 + dmenu
++ isync
++ pass
 
 Changes to be made
 ------------------

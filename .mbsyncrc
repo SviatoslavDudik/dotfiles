@@ -1,0 +1,40 @@
+IMAPAccount gmail
+Host imap.gmail.com
+Port 993
+User slavdudik303@gmail.com
+PassCmd "pass gmail/slavdudik303/mail-client"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Path ~/Mail/gmail/
+Inbox ~/Mail/gmail/INBOX
+SubFolders Verbatim
+
+Channel sync-gmail-default
+Master :gmail-remote:
+Slave :gmail-local:
+Create Both
+Expunge Both
+Patterns "INBOX"
+SyncState *
+
+Channel sync-gmail-sent
+Master :gmail-remote:"[Gmail]/Messages envoy&AOk-s"
+Slave :gmail-local:sent
+Create Both
+SyncState *
+
+Channel sync-gmail-trash
+Master :gmail-remote:"[Gmail]/Corbeille"
+Slave :gmail-local:trash
+Create Both
+SyncState *
+
+Group gmail
+Channel sync-gmail-default
+Channel sync-gmail-sent
+Channel sync-gmail-trash
