@@ -9,10 +9,10 @@ if [ $BLOCK_BUTTON -eq 1 ]; then
 fi
 
 curl https://wttr.in/ > /tmp/weather
-rainmm=$(cat /tmp/weather | sed '16q;d' | grep -wo "[0-9]\+.[0-9]\+ mm" | sort -nr | sed '1q')
-rain=$(cat /tmp/weather | sed '16q;d' | grep -wo "[0-9]\+%" | sort -nr | sed '1q')
-lowest=$(cat /tmp/weather | sed '13q;d' | grep -o "m\(-\)\?[0-9]\+" | cut -c 2- | sort -n | sed '1q')
-highest=$(cat /tmp/weather | sed '13q;d' | grep -o "m\(-\)\?[0-9]\+" | cut -c 2- | sort -nr | sed '1q')
+rainmm=$(cat /tmp/weather | sed '26q;d' | grep -wo "[0-9]\+.[0-9]\+ mm" | sort -nr | sed '1q')
+rain=$(cat /tmp/weather | sed '26q;d' | grep -wo "[0-9]\+%" | sort -nr | sed '1q')
+lowest=$(cat /tmp/weather | sed '23q;d' | grep -o "m\(-\)\?[0-9]\+" | cut -c 2- | sort -n | sed '1q')
+highest=$(cat /tmp/weather | sed '23q;d' | grep -o "m\(-\)\?[0-9]\+" | cut -c 2- | sort -nr | sed '1q')
 
 echo "☔$rain ❄$lowest° 🌞$highest°"
 
