@@ -11,6 +11,10 @@ tex_file() {
 	rm -f "${base}.dvi"
 	rm -f "${base}.fls"
 	rm -f "${base}.log"
+	rm -f "${base}.nav"
+	rm -f "${base}.out"
+	rm -f "${base}.snm"
+	rm -f "${base}.toc"
 	rm -f "${base}.fdb_latexmk"
 }
 

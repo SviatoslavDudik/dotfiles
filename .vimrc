@@ -21,6 +21,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'instant-markdown.vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'lervag/vimtex'
+Plugin 'UltiSnips'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -84,3 +85,9 @@ so ~/.vim/airline.vim
 set bg=light
 highlight SpellBad ctermfg=White ctermbg=Red
 highlight SpellCap cterm=underline ctermfg=LightBlue ctermbg=None
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
