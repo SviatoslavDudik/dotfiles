@@ -1,5 +1,4 @@
 source ~/.config/mutt/aliases
-source ~/.config/mutt/pass
 
 set realname         = "Sviatoslav Dudik"
 set from             = "slavdudik303@gmail.com"

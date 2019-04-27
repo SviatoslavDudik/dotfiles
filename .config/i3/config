@@ -70,6 +70,7 @@ bindsym $mod+m          exec sudo ~/.tools/mount.sh
 bindsym $mod+Shift+m    exec sudo ~/.tools/umount.sh
 bindsym $mod+g          exec ~/.tools/dmenuunicode.sh
 bindsym $mod+t          exec ~/.tools/dmenu_manpages.sh
+bindsym $mod+p          exec passmenu -i -l 30
 
 bindsym $mod+Shift+h    move left
 bindsym $mod+Shift+j    move down
@@ -234,8 +235,7 @@ exec_always exec $HOME/.tools/reload_bg.sh
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox
-exec --no-startup-id keepassxc
-exec --no-startup-id pactl set-sink-volume 0 50%
+exec --no-startup-id pactl set-sink-volume 0 30%
 exec --no-startup-id fluxgui
 
 # Changing keyboard layouts
