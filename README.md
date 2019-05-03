@@ -5,6 +5,8 @@ This is a copy of my dotfiles.
 
 This is essentially made for me to restore my settings.
 
+Use stow on every folder for ease install
+
 Programs whose configs can be found here
 ----------------------------------------
 
@@ -22,7 +24,7 @@ Programs whose configs can be found here
 Dependencies
 ------------
 
-+ [ttf-symbola](https://aur.archlinux.org/packages/ttf-symbola/)\textsuperscript{AUR}
++ [ttf-symbola](https://aur.archlinux.org/packages/ttf-symbola/ )(AUR)
 + xclip
 + dunst
 + dmenu
