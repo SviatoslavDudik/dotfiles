@@ -3771,18 +3771,24 @@ zrclocal
 # mode: sh
 # End:
 
+export TLDR_HEADER='magenta bold underline'
+export TLDR_QUOTE='italic'
+export TLDR_DESCRIPTION='green'
+export TLDR_CODE='red'
+export TLDR_PARAM='blue'
+
 alias wake="notify-send 'Terminal task completed'"
 alias r="ranger"
 alias n="nnn"
 alias p="sudo pacman"
 alias v="vim"
 alias youtube-dl="noglob youtube-dl"
-se(){$EDITOR "$(find ~/.tools/* ~/.config/* | fzf)"}
+se(){$EDITOR "$(find ~/.tools/* ~/.config/* | fzf --select-1 --exit-0)"}
 
-export PATH=$PATH:~/.tools
+export PATH="$PATH:~/bin:~/.tools"
 export TERMINAL=st
 export BROWSER=qutebrowser
-export MAIL=$HOME/Mail
+export MAIL="$HOME/Mail"
 export VISUAL=vim
 export TERM=screen-256color
 
