@@ -7,11 +7,6 @@ set use_from         = yes
 set smtp_url         = "smtps://slavdudik303@gmail.com@smtp.gmail.com:465/"
 set imap_user        = "slavdudik303@gmail.com"
 set folder           = "~/Mail/gmail"
-#set folder           = "imaps://slavdudik303@imap.gmail.com/"
-#set ssl_force_tls    = yes
-
-#set header_cache     = "~/.cache/mutt"
-#set message_cachedir = "~/.cache/mutt"
 
 set record           = "+sent"
 set trash            = "+trash"
@@ -28,7 +23,7 @@ set editor           = "vim"
 set charset          = "utf-8"
 
 auto_view text/html
-alternative_order text/plain text/enriched text/html
+alternative_order text/enriched text/plain text/html
 
 mono bold bold
 mono underline underline

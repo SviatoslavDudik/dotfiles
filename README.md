@@ -14,6 +14,7 @@ Programs whose configs can be found here
 + i3blocks
 + vim
 + neomutt + isync
++ surf
 + newsboat
 + zsh
 + ranger

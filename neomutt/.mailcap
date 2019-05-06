@@ -1,0 +1,1 @@
+text/html;      surf -s -g -F %s;        copiousoutput
