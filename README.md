@@ -13,7 +13,7 @@ Programs whose configs can be found here
 + i3
 + i3blocks
 + vim
-+ neomutt + isync
++ neomutt + isync + msmtp
 + surf
 + newsboat
 + zsh
@@ -41,12 +41,12 @@ Add to your `/etc/sudoers`:
 
 ```{sudoers}
 ALL ALL=(ALL) NOPASSWD:/usr/bin/pacman -Syuw,\
-		/home/archie/.tools/mount.sh,\
-		/home/archie/.tools/umount.sh,\
-		/usr/bin/systemctl restart NetworkManager,\
-		/usr/bin/shutdown,\
-		/usr/bin/reboot,\
-		/usr/bin/systemctl suspend
+              /home/archie/.tools/mount.sh,\
+              /home/archie/.tools/umount.sh,\
+              /usr/bin/systemctl restart NetworkManager,\
+              /usr/bin/shutdown,\
+              /usr/bin/reboot,\
+              /usr/bin/systemctl suspend
 ```
 
 ### caps2esc

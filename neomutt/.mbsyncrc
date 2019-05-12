@@ -4,6 +4,8 @@ Port 993
 User slavdudik303@gmail.com
 PassCmd "pass gmail/slavdudik303/mail-client"
 SSLType IMAPS
+SSLVersions TLSv1.2
+AuthMechs LOGIN
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 IMAPStore gmail-remote

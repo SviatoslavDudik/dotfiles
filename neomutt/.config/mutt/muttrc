@@ -4,19 +4,13 @@ set realname         = "Sviatoslav Dudik"
 set from             = "slavdudik303@gmail.com"
 set use_from         = yes
 
-set smtp_url         = "smtps://slavdudik303@gmail.com@smtp.gmail.com:465/"
+set sendmail         = "/usr/bin/msmtp -a main"
 set imap_user        = "slavdudik303@gmail.com"
 set folder           = "~/Mail/gmail"
 
 set record           = "+sent"
 set trash            = "+trash"
 set spoolfile        = "+INBOX"
-
-unset imap_passive
-set imap_check_subscribed
-
-set imap_keepalive   = 300
-set mail_check       = 300
 
 set beep             = no
 set editor           = "vim"
