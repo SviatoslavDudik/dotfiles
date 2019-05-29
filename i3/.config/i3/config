@@ -237,6 +237,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dropbox
 exec --no-startup-id pactl set-sink-volume 0 30%
 exec --no-startup-id fluxgui
+exec --no-startup-id dunst
 
 # Changing keyboard layouts
 exec_always --no-startup-id "setxkbmap -layout us,fr,ua"

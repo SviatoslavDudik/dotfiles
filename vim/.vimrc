@@ -9,6 +9,7 @@ runtime latex.vim
 runtime maps.vim
 runtime markdown.vim
 runtime plugins.vim
+runtime spell.vim
 runtime theme.vim
 runtime ulti-snips.vim
 
