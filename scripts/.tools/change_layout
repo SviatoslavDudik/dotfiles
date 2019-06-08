@@ -1,0 +1,7 @@
+#!/bin/sh
+
+layout=`xkblayout-state print "%s"`
+
+[ $layout = 'us' ] && setxkbmap -layout fr && exit
+[ $layout = 'fr' ] && setxkbmap -layout ua && exit
+setxkbmap -layout us

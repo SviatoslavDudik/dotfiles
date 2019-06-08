@@ -3780,6 +3780,7 @@ export TLDR_PARAM='blue'
 alias wake="notify-send 'Terminal task completed'"
 alias r="ranger"
 alias n="nnn"
+alias neomutt="neomutt && update_status"
 alias p="sudo pacman"
 alias v="vim"
 alias youtube-dl="noglob youtube-dl"
