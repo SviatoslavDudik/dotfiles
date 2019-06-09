@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #☔: Chance of rain/snow
 #❄: Daily low
@@ -14,7 +14,11 @@ else
 	row=23
 fi
 
-curl https://wttr.in/ > /tmp/weather
+ping -q -c 1 1.1.1.1 > /dev/null &&
+	curl https://wttr.in/ > /tmp/weather
+
+[ -f /tmp/weather ] || exit
+
 rainmm=$(cat /tmp/weather | sed "$(($row + 3))q;d" | grep -wo "[0-9]\+.[0-9]\+ mm" | sort -nr | sed '1q')
 rain=$(cat /tmp/weather | sed "$(($row + 3))q;d" | grep -wo "[0-9]\+%" | sort -nr | sed '1q')
 lowest=$(cat /tmp/weather | sed "$(($row))q;d" | grep -o "m-\?[0-9]\+" | cut -c 2- | sort -n | sed '1q')
