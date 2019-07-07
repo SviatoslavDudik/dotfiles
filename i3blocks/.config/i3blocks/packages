@@ -2,6 +2,7 @@
 
 case $BLOCK_BUTTON in
 	1) st /home/archie/.config/i3blocks/upgrade ;;
+	2) pkill -SIGRTMIN+10 i3blocks ;;
 	3) notify-send "$(/usr/bin/pacman -Qu)" ;;
 esac
 
