@@ -3777,6 +3777,9 @@ export TLDR_DESCRIPTION='green'
 export TLDR_CODE='red'
 export TLDR_PARAM='blue'
 
+alias :wq="echo \"You're not in vim dumbass\""
+alias rm="rm -I"
+
 alias wake="notify-send 'Terminal task completed'"
 alias r="ranger"
 alias n="nnn"

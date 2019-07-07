@@ -5,6 +5,12 @@ config_version: 2
 settings:
   auto_save.session:
     global: true
+  fonts.hints:
+    global: bold 10pt monospace
+  fonts.keyhint:
+    global: 10pt monospace
+  hints.uppercase:
+    global: true
   qt.force_software_rendering:
     global: chromium
   spellcheck.languages:

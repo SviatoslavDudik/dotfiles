@@ -42,3 +42,5 @@ augroup END
 
 highlight link Jump Function
 match Jump '<++>'
+
+let g:syntastic_ignore_files = ['\m.py']
