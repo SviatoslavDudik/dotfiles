@@ -237,7 +237,7 @@ bindcode 232 exec light -U 5
 # Background wallpaper
 exec_always exec $HOME/.tools/reload_bg.sh
 
-exec --no-startup-id compton -f
+#exec --no-startup-id compton
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox
 exec --no-startup-id fluxgui
