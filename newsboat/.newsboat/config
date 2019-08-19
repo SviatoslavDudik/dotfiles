@@ -17,7 +17,7 @@ bind-key D pb-download
 bind-key x pb-delete
 
 browser "qutebrowser "
-macro v set browser "i3 exec vlc"; open-in-browser ; set browser browser
 macro w set browser "w3m"; open-in-browser ; set browser browser
 macro d set browser "st youtube-dl %u &" ; open-in-browser ; set browser browser
+macro v set browser "st mpv '%u' &" ; open-in-browser ; set browser browser
 
