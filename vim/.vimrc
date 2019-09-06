@@ -10,7 +10,6 @@ runtime maps.vim
 runtime markdown.vim
 runtime plugins.vim
 runtime spell.vim
-runtime theme.vim
 runtime ulti-snips.vim
 
 syntax on
@@ -44,3 +43,11 @@ highlight link Jump Function
 match Jump '<++>'
 
 let g:syntastic_ignore_files = ['\m.py']
+
+let ale#statusline#Count = 1
+let g:airline_solarized_bg='dark'
+highlight SpellBad ctermfg=White ctermbg=LightRed
+highlight SpellCap cterm=underline ctermfg=LightBlue ctermbg=None
+
+colorscheme gruvbox
+set background=dark
