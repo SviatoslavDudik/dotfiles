@@ -1,0 +1,12 @@
+set realname         = "Sviatoslav Dudik"
+set from             = "dudiksviatoslav@gmail.com"
+set use_from         = yes
+
+set sendmail         = "/usr/bin/msmtp -a work"
+set imap_user        = "dudiksviatoslav@gmail.com"
+set folder           = "~/Mail/work"
+
+set record           = "+sent"
+set trash            = "+trash"
+set spoolfile        = "+INBOX"
+

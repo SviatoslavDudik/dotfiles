@@ -40,3 +40,48 @@ Group gmail
 Channel sync-gmail-default
 Channel sync-gmail-sent
 Channel sync-gmail-trash
+
+
+
+IMAPAccount work
+Host imap.gmail.com
+Port 993
+User dudiksviatoslav@gmail.com
+PassCmd "pass gmail/dudiksviatoslav/mail-client"
+SSLType IMAPS
+SSLVersions TLSv1.2
+AuthMechs LOGIN
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore work-remote
+Account work
+
+MaildirStore work-local
+Path ~/Mail/work/
+Inbox ~/Mail/work/INBOX
+SubFolders Verbatim
+
+Channel sync-work-default
+Master :work-remote:
+Slave :work-local:
+Create Both
+Expunge Both
+Patterns "INBOX"
+SyncState *
+
+Channel sync-work-sent
+Master :work-remote:"[Gmail]/Messages envoy&AOk-s"
+Slave :work-local:sent
+Create Both
+SyncState *
+
+Channel sync-work-trash
+Master :work-remote:"[Gmail]/Corbeille"
+Slave :work-local:trash
+Create Both
+SyncState *
+
+Group work
+Channel sync-work-default
+Channel sync-work-sent
+Channel sync-work-trash

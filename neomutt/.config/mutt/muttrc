@@ -1,20 +1,16 @@
+source '~/.config/mutt/work'
+folder-hook $folder 'source ~/.config/mutt/work'
+source '~/.config/mutt/personal'
+folder-hook $folder 'source ~/.config/mutt/personal'
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/personal<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/work<enter><change-folder>!<enter>'
+
 source ~/.config/mutt/aliases
-
-set realname         = "Sviatoslav Dudik"
-set from             = "slavdudik303@gmail.com"
-set use_from         = yes
-
-set sendmail         = "/usr/bin/msmtp -a main"
-set imap_user        = "slavdudik303@gmail.com"
-set folder           = "~/Mail/gmail"
-
-set record           = "+sent"
-set trash            = "+trash"
-set spoolfile        = "+INBOX"
 
 set beep             = no
 set editor           = "vim"
 set charset          = "utf-8"
+set sidebar_visible  = no
 
 auto_view text/html
 alternative_order text/enriched text/plain text/html

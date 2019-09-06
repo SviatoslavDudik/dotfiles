@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find ~/Mail/work/INBOX/{cur,new} -type f | grep -v -e "S$" | wc -l | sed -e 's/^0$//g'
