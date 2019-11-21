@@ -1,5 +1,5 @@
 autoload -Uz compinit up-line-or-beginning-search down-line-or-beginning-search
-HISTFILE=~/.zsh_history
+HISTFILE=~/.cache/zsh/history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
@@ -15,19 +15,21 @@ PROMPT='%(?..%B%F{red}%?%f%b )%B%F{blue}%n%f%b@%m %B%~%b %(!.%F{red}#%f.%%) '
 alias wake="notify-send 'Terminal task completed'"
 alias r="ranger"
 alias n="nnn"
-alias neomutt="neomutt && update_status"
+alias neomutt="neomutt && pkill -SIGRTMIN+2 i3blocks"
 alias p="sudo pacman"
 alias v="vim"
 alias youtube-dl="noglob youtube-dl"
 se(){$EDITOR "$(find ~/.tools/* ~/.config/* | fzf --select-1 --exit-0)"}
 
 autoload edit-command-line; zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+bindkey '^e' edit-command-line
 bindkey -v
 
 alias :wq="echo \"You're not in vim dumbass\""
 alias rm="rm -I"
 alias please="sudo"
+
+alias matlab="/usr/local/Polyspace/R2019b/bin/matlab"
 
 # Colors
 alias grep="grep --color=auto"

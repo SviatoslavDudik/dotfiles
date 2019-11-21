@@ -231,8 +231,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% &&
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && $HOME/.tools/update_status
 
 # Sreen brightness controls
-bindcode 233 exec light -A 5
-bindcode 232 exec light -U 5
+bindcode 233 exec sudo light -A 5
+bindcode 232 exec sudo light -U 5
 
 # Background wallpaper
 exec_always exec $HOME/.tools/reload_bg.sh
