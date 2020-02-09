@@ -6,6 +6,15 @@ macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/perso
 macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/work<enter><change-folder>!<enter>'
 
 source ~/.config/mutt/aliases
+source ~/.config/mutt/gpg.rc
+
+set imap_check_subscribed
+set header_cache = ~/.cache/mutt
+#set message_cachedir = "~/.cache/mutt"
+set postponed = +[Gmail]/Drafts
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 120
 
 set beep             = no
 set editor           = "vim"

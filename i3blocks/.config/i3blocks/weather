@@ -4,10 +4,6 @@
 #❄: Daily low
 #🌞: Daily high
 
-if [ $BLOCK_BUTTON -eq 1 ]; then
-	st ~/.config/i3blocks/weatherhelp
-fi
-
 if [ $(date +%H) -lt 18 ]; then
 	row=13
 else

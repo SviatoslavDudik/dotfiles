@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 file=$(readlink -f "$1")
 dir=$(dirname "$file")

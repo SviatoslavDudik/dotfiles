@@ -15,7 +15,6 @@ PROMPT='%(?..%B%F{red}%?%f%b )%B%F{blue}%n%f%b@%m %B%~%b %(!.%F{red}#%f.%%) '
 alias wake="notify-send 'Terminal task completed'"
 alias r="ranger"
 alias n="nnn"
-alias neomutt="neomutt && pkill -SIGRTMIN+2 i3blocks"
 alias p="sudo pacman"
 alias v="vim"
 alias youtube-dl="noglob youtube-dl"

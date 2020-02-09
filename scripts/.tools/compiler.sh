@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 file=$(readlink -f "$1")
 dir=$(dirname "$file")
@@ -21,12 +21,20 @@ cfile() {
 	fi
 }
 
+latex() {
+	if [ -e "$base.glo" ]; then
+		pdflatex "$file"
+		makeglossaries "$base"
+	fi
+	pdflatex "$file"
+	update_pdf
+}
 
 case "$file" in
 	*\.c|*\.h) cfile ;;
 	*\.py) python "$file" ;;
 	*\.sh) chmod u+x "$file" ;;
-	*\.tex) latexmk -pdf "$file" && update_pdf ;;
+	*\.tex) latex ;;
 	*\.md) pandoc "$file" -o "$base".pdf && update_pdf ;;
 	*\.ms) refer -PS -e "$file" | groff -ms -kejpt -T pdf > "$base".pdf && update_pdf ;;
 	*) echo "doesn't support this extention" || exit 1 ;;

@@ -14,6 +14,8 @@ runtime ulti-snips.vim
 
 packadd! onedark.vim
 
+let g:ale_enabled=0
+
 syntax on
 
 set showcmd
@@ -57,3 +59,5 @@ highlight SpellCap cterm=underline ctermfg=LightBlue ctermbg=None
 "colorscheme gruvbox
 colorscheme onedark
 set background=dark
+
+nmap <leader>w :s/\(<c-r>=expand("<cword>")<cr>\)/

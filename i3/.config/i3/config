@@ -224,24 +224,33 @@ bar {
 
 # Pulse Audio controls
 #increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && $HOME/.tools/update_status
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ && $HOME/.tools/update_status
 #decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && $HOME/.tools/update_status
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- && $HOME/.tools/update_status
 # mute sound
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && $HOME/.tools/update_status
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && amixer set Headphone on && amixer set Speaker on && $HOME/.tools/update_status
+
+bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
 
 # Sreen brightness controls
 bindcode 233 exec sudo light -A 5
 bindcode 232 exec sudo light -U 5
 
+# Touchpad toggle
+bindcode 199 exec /home/archie/.tools/toggle_touchpad.sh
+
 # Background wallpaper
 exec_always exec $HOME/.tools/reload_bg.sh
 
 #exec --no-startup-id compton
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 exec --no-startup-id dropbox
 exec --no-startup-id fluxgui
 exec --no-startup-id dunst
+exec /home/archie/.tools/toggle_touchpad.sh
 
 # Setting keyboard layouts
 exec "setxkbmap -layout us,fr,ua"
