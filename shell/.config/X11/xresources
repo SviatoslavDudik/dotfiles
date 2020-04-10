@@ -1,7 +1,7 @@
 *alpha:				0.85
 *foreground:		#aaaaaa
 *foreground_bold:	#777777
-*cursor:			#888888
+*cursor:			#ffffff
 
 !!!! black
 *.color0:	#000000

@@ -1,9 +1,10 @@
 autoload -Uz compinit up-line-or-beginning-search down-line-or-beginning-search
-HISTFILE=~/.cache/zsh/history
-HISTSIZE=10000
-SAVEHIST=10000
+
+export HISTFILE="$XDG_DATA_HOME"/zsh/history
+export HISTSIZE=10000
+export SAVEHIST=10000
 setopt appendhistory
-compinit
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
@@ -12,6 +13,7 @@ bindkey "^R" history-incremental-search-backward
 
 PROMPT='%(?..%B%F{red}%?%f%b )%B%F{blue}%n%f%b@%m %B%~%b %(!.%F{red}#%f.%%) '
 
+source "$XDG_CONFIG_HOME"/aliasrc
 alias wake="notify-send 'Terminal task completed'"
 alias r="ranger"
 alias n="nnn"
@@ -35,6 +37,8 @@ alias grep="grep --color=auto"
 alias ls="ls --color=auto --group-directories-first"
 alias ll="ls -l"
 
+export PATH="$PATH:$GEM_HOME/ruby/2.7.0/bin/"
+
 export LESS_TERMCAP_mb=$'\e[1;34m'
 export LESS_TERMCAP_md=$'\e[1;34m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -47,3 +51,5 @@ export TLDR_QUOTE='italic'
 export TLDR_DESCRIPTION='green'
 export TLDR_CODE='red'
 export TLDR_PARAM='blue'
+
+echoti clear

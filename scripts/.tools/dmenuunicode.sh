@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-chosen=$(grep -v '#' ~/.emoji | dmenu -i -l 10 -fn Monospace-14 | awk '{printf $1}'| sed "s/ .*//")
+chosen=$(grep -v '#' $XDG_DATA_HOME/emoji | dmenu -i -l 10 -fn Monospace-14 | awk '{printf $1}'| sed "s/ .*//")
 
 # If nothing has been chosen then exit
 [ "$chosen" != "" ] || exit

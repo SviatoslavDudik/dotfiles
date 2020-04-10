@@ -234,6 +234,8 @@ bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2
 bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
+# wallpapers
+exec xwallpaper --zoom $HOME/.config/wall.png
 
 # Sreen brightness controls
 bindcode 233 exec sudo light -A 5
@@ -241,9 +243,6 @@ bindcode 232 exec sudo light -U 5
 
 # Touchpad toggle
 bindcode 199 exec /home/archie/.tools/toggle_touchpad.sh
-
-# Background wallpaper
-exec_always exec $HOME/.tools/reload_bg.sh
 
 #exec --no-startup-id compton
 #exec --no-startup-id nm-applet
@@ -253,4 +252,5 @@ exec --no-startup-id dunst
 exec /home/archie/.tools/toggle_touchpad.sh
 
 # Setting keyboard layouts
-exec "setxkbmap -layout us,fr,ua"
+#exec "setxkbmap -layout us,fr,ua"
+exec_always xmodmap $HOME/.config/X11/keymaps
