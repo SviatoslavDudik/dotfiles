@@ -163,6 +163,9 @@ map ,md :InstantMarkdownPreview<CR>
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 autocmd BufWritePre * %s/\s\+$//e
 
+
+autocmd BufNewFile,BufReadPost /tmp/sql* set filetype=sql
+
 """"""""""""""""""""""""""""""""""""""""""
 " Spell
 """"""""""""""""""""""""""""""""""""""""""
