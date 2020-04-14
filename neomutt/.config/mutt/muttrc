@@ -1,9 +1,12 @@
 source '~/.config/mutt/work'
 folder-hook $folder 'source ~/.config/mutt/work'
+source '~/.config/mutt/study'
+folder-hook $folder 'source ~/.config/mutt/study'
 source '~/.config/mutt/personal'
 folder-hook $folder 'source ~/.config/mutt/personal'
 macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/personal<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/work<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/study<enter><change-folder>!<enter>'
+macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/mutt/work<enter><change-folder>!<enter>'
 
 source ~/.config/mutt/aliases
 source ~/.config/mutt/gpg.rc
@@ -11,11 +14,13 @@ source ~/.config/mutt/gpg.rc
 set imap_check_subscribed
 set header_cache = ~/.cache/mutt
 #set message_cachedir = "~/.cache/mutt"
-set postponed = +[Gmail]/Drafts
 unset imap_passive
 set imap_keepalive = 300
 set mail_check = 120
+set net_inc = 5
 
+set envelope_from    = yes
+set sendmail         = "/usr/bin/msmtp"
 set beep             = no
 set editor           = "vim"
 set charset          = "utf-8"
@@ -35,6 +40,8 @@ color index_size green default
 color normal default default
 color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 color body brightblue default (http|ftp)s?://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
 bind pager j next-line
 bind pager k previous-line

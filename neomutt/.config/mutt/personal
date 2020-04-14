@@ -1,15 +1,17 @@
 source "echo set my_pass=$(pass gmail/slavdudik303/mail-client)|"
-set realname         = "Sviatoslav Dudik"
 set from             = "slavdudik303@gmail.com"
 set use_from         = yes
-set envelope_from    = yes
 
 set folder           = imaps://slavdudik303@imap.gmail.com/
-set imap_pass        = $my_pass
-set sendmail         = "/usr/bin/msmtp -a personal"
 set imap_user        = "slavdudik303@gmail.com"
+set imap_pass        = $my_pass
 
-set record           = "+sent"
-set trash            = "+trash"
 set spoolfile        = "+INBOX"
+set record           = "+[Gmail]/Messages envoyés"
+set trash            = "+[Gmail]/Corbeille"
+set postponed        = "+[Gmail]/Brouillons"
 
+set realname         = "Sviatoslav Dudik"
+
+unset imap_login
+unset signature

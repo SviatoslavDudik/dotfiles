@@ -17,3 +17,10 @@ port 587
 from dudiksviatoslav@gmail.com
 user dudiksviatoslav@gmail.com
 passwordeval "pass gmail/dudiksviatoslav/mail-client"
+
+account study
+host smtp.univ-paris13.fr
+from sviatoslav.dudik@edu.univ-paris13.fr
+user 11708496
+passwordeval "pass Education/Paris13|sed 1q"
+tls_starttls off
