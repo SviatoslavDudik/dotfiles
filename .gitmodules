@@ -1,0 +1,12 @@
+[submodule "coc.nvim"]
+	path = vim/.config/vim/pack/func/opt/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule "vim-fugitive"]
+	path = vim/.config/vim/pack/func/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim-surround"]
+	path = vim/.config/vim/pack/func/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "onedark.vim"]
+	path = vim/.config/vim/pack/look/opt/onedark.vim
+	url = https://github.com/joshdick/onedark.vim

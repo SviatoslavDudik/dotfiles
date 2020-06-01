@@ -1,12 +1,8 @@
-" Installation
-" Add so ~/.vim/scripts/deadkeys.vim to your .vimrc file
-" then to map it to any key
-" map <F7> :call ToggleDeadKeys()<CR>
-
-let g:DeadKeysOn=0
-
 function! ToggleDeadKeys()
-	if !g:DeadKeysOn
+	if !exists('b:DeadKeysOn')
+		let b:DeadKeysOn = 0
+	endif
+	if !b:DeadKeysOn
 		call DeadKeys()
 	else
 		call DeadKeysOff()
@@ -15,7 +11,7 @@ endfunction
 
 function! DeadKeys()
 	echo "Dead Keys: On"
-	let g:DeadKeysOn=1
+	let b:DeadKeysOn=1
 	" bound keys
 	imap ~a à
 	imap ~e è
@@ -40,7 +36,7 @@ endfunction
 
 function! DeadKeysOff()
 	echo "Dead Keys: Off"
-	let g:DeadKeysOn=0
+	let b:DeadKeysOn=0
 	" unbound keys
 	iunmap ~a
 	iunmap ~e

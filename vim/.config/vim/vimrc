@@ -1,6 +1,6 @@
-let mapleader=","
+let mapleader=" "
 
-set nocompatible              " be iMproved, required
+set nocompatible
 """"""""""""""""""""""""""""""""""""""""""
 " Files, backups and undo
 """"""""""""""""""""""""""""""""""""""""""
@@ -8,28 +8,15 @@ set undodir=$XDG_DATA_HOME/vim/undo
 set directory=$XDG_DATA_HOME/vim/swap
 set backupdir=$XDG_DATA_HOME/vim/backup
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after,$XDG_CONFIG_HOME/vim/scripts
+set runtimepath+=$XDG_CONFIG_HOME/vim/
+set runtimepath+=$XDG_CONFIG_HOME/vim/after
+set runtimepath+=$XDG_CONFIG_HOME/vim/plugin
+set runtimepath+=$XDG_CONFIG_HOME/vim/ftplugin
+set packpath=$XDG_CONFIG_HOME/vim
 
 """"""""""""""""""""""""""""""""""""""""""
-" Plugins
+" Basics
 """"""""""""""""""""""""""""""""""""""""""
-set rtp+=$XDG_CONFIG_HOME/vim/bundle/Vundle.vim
-"tpope/vim-fugitive
-"surround.vim
-"vim-airline/vim-airline
-"vim-airline/vim-airline-themes
-"scrooloose/syntastic ?
-"colorizer
-"christoomey/vim-tmux-navigator
-filetype plugin indent on
-
-runtime deadkeys.vim
-
-se packpath=$XDG_CONFIG_HOME/vim
-packadd! onedark.vim
-
-syntax on
-
 set showcmd
 set relativenumber
 set number
@@ -38,6 +25,7 @@ set laststatus=2
 set novisualbell
 set notimeout ttimeout ttimeoutlen=200
 set shiftwidth=4
+set shiftround
 set tabstop=4
 
 set cin
@@ -45,154 +33,37 @@ set listchars=tab:··
 set list
 set showmatch
 
+set spelllang=en,fr
+set complete+=kspell
 set splitbelow
 set splitright
 set wildmode=longest,list,full
 " make make silent
 set makeprg=make\ -s
 set path+=**
-"set termguicolors
+" use folds
+set foldlevelstart=1
+" italic text
+set t_ZH=[3m
+set t_ZR=[23m
 
-
-
-autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
-augroup filetypedetect
-	" Mail
-	autocmd BufRead,BufNewFile *mutt-* setfiletype mail
-augroup END
-
-autocmd BufRead,BufNewFile *.tex set tw=100
+" detect filetype
+silent let s:filelist = systemlist("ls $XDG_CONFIG_HOME/vim/ftdetect/")
+for s:filename in s:filelist
+	let s:file = '$XDG_CONFIG_HOME/vim/ftdetect/' . s:filename
+	execute 'source ' . s:file
+endfor
 
 highlight link Jump Function
 match Jump '<++>'
 
-let g:syntastic_ignore_files = ['\m.py']
-
-let ale#statusline#Count = 1
-let g:airline_solarized_bg='dark'
-highlight SpellBad ctermfg=White ctermbg=LightRed
-highlight SpellCap cterm=underline ctermfg=LightBlue ctermbg=None
-
-""""""""""""""""""""""""""""""""""""""""""
-" Theme
-""""""""""""""""""""""""""""""""""""""""""
-colorscheme onedark
-set background=dark
-
-""""""""""""""""""""""""""""""""""""""""""
-" Maps
-""""""""""""""""""""""""""""""""""""""""""
-
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <leader>sp :call FixLastSpelling()<CR>
-map <leader>c :w! \| !~/.tools/compiler.sh <c-r>%<CR><CR>
-map <leader>p :!~/.tools/openup.sh <c-r>%<CR><CR>
-map <leader>r :!~/.tools/clean.sh <c-r>%<CR><CR>
-map <F7> :call ToggleDeadKeys()<CR>
-nnoremap <C-n> :Explore<CR>
-noremap <leader><Tab> <Esc>/<++><CR>"_c4l
-nmap <leader>w :s/\(<c-r>=expand("<cword>")<cr>\)/
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
-
-""""""""""""""""""""""""""""""""""""""""""
-" Airline
-""""""""""""""""""""""""""""""""""""""""""
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+if has('packages')
+	" here packadd!
+	packadd! onedark.vim
 endif
 
-let g:pandoc#modules#disabled = ["folding"]
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
+set background=dark
+colorscheme onedark
 
-""""""""""""""""""""""""""""""""""""""""""
-" LaTeX
-""""""""""""""""""""""""""""""""""""""""""
-let g:polyglot_disabled = ['latex'] " disable polyglot plugin
-let g:tex_flavor='latex'
-let g:vimtex_view_method='mupdf'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
-
-set foldlevelstart=1
-let g:tex_fold_enabled=1
-
-autocmd BufNewFile,BufRead *.tex set spell
-autocmd FileType tex set fdm=syntax
-autocmd BufNewFile,BufRead *.tex runtime latex_snippets.vim
-
-""""""""""""""""""""""""""""""""""""""""""
-" Markdown
-""""""""""""""""""""""""""""""""""""""""""
-function! NewMarkdown()
-	r ~/.vim/templates/markdown.md
-	normal! ggdd
-endfunction
-function! SyncMarkdown()
-	!markdown_save.sh %
-endfunction
-autocmd BufNewFile *.md :call NewMarkdown()
-autocmd BufEnter *.md inoremap ,b ****<++><Esc>F*hi
-autocmd BufEnter *.md inoremap ,s ~~~~<++><Esc>F~hi
-autocmd BufEnter *.md inoremap ,i **<++><Esc>F*i
-autocmd BufEnter *.md nnoremap <leader>= 0vg_"_yo<Esc>"_pVr=j
-autocmd BufEnter *.md nnoremap <leader>- 0vg_"_yo<Esc>"_pVr-j
-autocmd BufEnter *.md nnoremap <leader># I###<Space><Esc>0j
-autocmd BufEnter *.md nnoremap d* F*xf*x
-autocmd BufEnter *.md setlocal spell spelllang=en,fr
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd BufRead,BufNewFile *.md setlocal textwidth=100
-
-let g:instant_markdown_autostart = 0
-map ,md :InstantMarkdownPreview<CR>
-
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-autocmd BufWritePre * %s/\s\+$//e
-
-
-autocmd BufNewFile,BufReadPost /tmp/sql* set filetype=sql
-
-""""""""""""""""""""""""""""""""""""""""""
-" Spell
-""""""""""""""""""""""""""""""""""""""""""
-set spelllang=en,fr
-set complete+=kspell
-
-function! FixLastSpelling()
-	setlocal spell
-	normal! mz[s1z=`z
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""
-" Syntastic
-""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-""""""""""""""""""""""""""""""""""""""""""
-" Ulti-Snips
-""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+filetype plugin indent on
+syntax on
