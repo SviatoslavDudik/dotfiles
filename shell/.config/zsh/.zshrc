@@ -13,14 +13,14 @@ bindkey "^R" history-incremental-search-backward
 
 PROMPT='%(?..%B%F{red}%?%f%b )%B%F{blue}%n%f%b@%m %B%~%b %(!.%F{red}#%f.%%) '
 
-source "$XDG_CONFIG_HOME"/aliasrc
+source "$XDG_CONFIG_HOME"/zsh/aliasrc
 alias wake="notify-send 'Terminal task completed'"
 alias r="ranger"
 alias n="nnn"
 alias p="sudo pacman"
 alias v="vim"
 alias youtube-dl="noglob youtube-dl"
-se(){$EDITOR "$(find ~/.tools/* ~/.config/* | fzf --select-1 --exit-0)"}
+se(){$EDITOR "$(find ~/.local/bin/* ~/.config/* | fzf --select-1 --exit-0)"}
 
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
@@ -36,8 +36,6 @@ alias matlab="/usr/local/Polyspace/R2019b/bin/matlab"
 alias grep="grep --color=auto"
 alias ls="ls --color=auto --group-directories-first"
 alias ll="ls -l"
-
-export PATH="$PATH:$GEM_HOME/ruby/2.7.0/bin/"
 
 export LESS_TERMCAP_mb=$'\e[1;34m'
 export LESS_TERMCAP_md=$'\e[1;34m'

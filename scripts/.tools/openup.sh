@@ -24,10 +24,17 @@ c_file() {
 	fi
 }
 
-
+java_file() {
+	if [ -e Makefile ]; then
+		java `cat Makefile | sed -e '/:/q; /.*$/d' Makefile | sed -e 's/\.class:.*//g'`
+	else
+		java "$base"
+	fi
+}
 case "$file" in
 	*\.c|*\.h) c_file ;;
 	*\.py) python "$file" ;;
+	*\.java) java_file ;;
 	*\.sh) "$file" ;;
 	*\.tex) pdf_file ;;
 	*\.md) pdf_file ;;

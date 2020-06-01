@@ -21,18 +21,27 @@ cfile() {
 	fi
 }
 
+javafile() {
+	if [ -e Makefile ]; then
+		make
+	else
+		javac "$file"
+	fi
+}
+
 latex() {
 	if [ -e "$base.glo" ]; then
-		pdflatex "$file"
+		lualatex "$file"
 		makeglossaries "$base"
 	fi
-	pdflatex "$file"
+	lualatex "$file"
 	update_pdf
 }
 
 case "$file" in
 	*\.c|*\.h) cfile ;;
 	*\.py) python "$file" ;;
+	*\.java) javafile ;;
 	*\.sh) chmod u+x "$file" ;;
 	*\.tex) latex ;;
 	*\.md) pandoc "$file" -o "$base".pdf && update_pdf ;;

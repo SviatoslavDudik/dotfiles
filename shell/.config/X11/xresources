@@ -28,9 +28,16 @@
 *.color7:	#a89984
 *.color15:	#abbbb2
 
-dwm.normbordercolor: #78e9a8
-dwm.normbgcolor: #928374
-dwm.normfgcolor: #abbbb2
-dwm.selbordercolor: #689d6a
-dwm.selbgcolor: #000000
-dwm.selfgcolor: #a89984
+!dwm.normbordercolor: #78e9a8
+!dwm.normbgcolor: #928374
+!dwm.normfgcolor: #abbbb2
+!dwm.selbordercolor: #689d6a
+!dwm.selbgcolor: #000000
+!dwm.selfgcolor: #a89984
+
+dwm.normbordercolor: #928374
+dwm.normbgcolor: #282828
+dwm.normfgcolor: #ebdbb2
+dwm.selbordercolor: #98971a
+dwm.selbgcolor: #3c3836
+dwm.selfgcolor: #8ec07c

@@ -16,11 +16,11 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
+    xrdb -merge $userresources
 fi
 
 if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
+    xmodmap $usermodmap
 fi
 
 # start some nice programs
@@ -32,7 +32,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-session=${1:-i3}
+slstatus &
+session=${1:-dwm}
 
 case "$session" in
 	i3|i3wm) exec /usr/bin/i3 ;;

@@ -1,7 +1,9 @@
 #!/bin/sh
 
-layout=`xkblayout-state print "%s"`
+layout=$(setxkbmap -query | grep layout | awk '{printf $2}')
 
-[ $layout = 'us' ] && setxkbmap -layout fr && exit
-[ $layout = 'fr' ] && setxkbmap -layout ua && exit
-setxkbmap -layout us
+case $layout in
+	'us') setxkbmap -layout fr && exit;;
+	'fr') setxkbmap -layout ua && exit;;
+	*) setxkbmap -layout us;;
+esac
