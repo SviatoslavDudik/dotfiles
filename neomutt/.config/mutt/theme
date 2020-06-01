@@ -1,0 +1,12 @@
+mono underline underline
+mono indicator reverse
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.*'
+color index_size green default
+color normal default default
+color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (http|ftp)s?://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+color sidebar_indicator green default
+

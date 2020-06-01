@@ -1,0 +1,11 @@
+set from             = "sviatoslav.dudik@edu.univ-paris13.fr"
+set use_from         = yes
+set realname         = "Sviatoslav Dudik"
+
+named-mailboxes "Study" ="Study/Inbox"
+
+set signature        = "~/.config/mutt/signature_study"
+
+unset pgp_default_key
+unset pgp_sign_as
+

@@ -1,0 +1,16 @@
+set from             = "sviatoslav.dudik@gmail.com"
+set use_from         = yes
+set realname         = "Sviatoslav Dudik"
+
+named-mailboxes "Work" ="Work/Work"
+named-mailboxes "Work.Sent" ="Work/sent"
+named-mailboxes "Work.Trash" ="Work/trash"
+
+set trash = "+Work/trash"
+set record = "+Work/sent"
+
+unset imap_login
+unset signature
+
+unset pgp_default_key
+unset pgp_sign_as

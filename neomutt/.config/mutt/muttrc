@@ -1,53 +1,35 @@
-source '~/.config/mutt/work'
-folder-hook $folder 'source ~/.config/mutt/work'
-source '~/.config/mutt/study'
-folder-hook $folder 'source ~/.config/mutt/study'
-source '~/.config/mutt/personal'
-folder-hook $folder 'source ~/.config/mutt/personal'
-macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/personal<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/study<enter><change-folder>!<enter>'
-macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/mutt/work<enter><change-folder>!<enter>'
+folder-hook '~/.mail/Home' 'source ~/.config/mutt/accounts/personal'
+folder-hook '~/.mail/Study' 'source ~/.config/mutt/accounts/study'
+folder-hook '~/.mail/Work' 'source ~/.config/mutt/accounts/work'
 
-source ~/.config/mutt/aliases
 source ~/.config/mutt/gpg.rc
+source ~/.config/mutt/sidebar
+source ~/.config/mutt/theme
+source ~/.config/mutt/bindings
 
-set imap_check_subscribed
 set header_cache = ~/.cache/mutt
-#set message_cachedir = "~/.cache/mutt"
-unset imap_passive
-set imap_keepalive = 300
-set mail_check = 120
+set message_cachedir = "~/.cache/mutt"
 set net_inc = 5
 
+set folder           = "~/.mail/"
+set spoolfile        = "+Home/Home"
+set mbox_type        = Maildir
 set envelope_from    = yes
 set sendmail         = "/usr/bin/msmtp"
 set beep             = no
-set editor           = "vim"
+set edit_headers     = yes
+set editor           = "vim +/^$ +nohlsearch"
 set charset          = "utf-8"
-set sidebar_visible  = no
+set query_command    = "abook --mutt-query %s"
 
-auto_view text/html
-alternative_order text/enriched text/plain text/html
+set crypt_verify_sig = yes
 
-mono bold bold
-mono underline underline
-mono indicator reverse
-color index yellow default '.*'
-color index_author red default '.*'
-color index_number blue default
-color index_subject cyan default '.s'
-color index_size green default
-color normal default default
-color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
-color body brightblue default (http|ftp)s?://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+set implicit_autoview = yes
+set mailcap_path     = "~/.config/mutt/mailcap"
+auto_view application/pdf
 
-macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
+source ~/.config/mutt/accounts/personal
+source ~/.config/mutt/accounts/study
+source ~/.config/mutt/accounts/work
 
-bind pager j next-line
-bind pager k previous-line
-bind attach,index,pager \CD next-page
-bind attach,index,pager \CU previous-page
-bind pager g top
-bind pager G bottom
-bind attach,index g first-entry
-bind attach,index G last-entry
+

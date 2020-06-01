@@ -1,0 +1,21 @@
+set from             = "slavdudik303@gmail.com"
+set use_from         = yes
+set realname         = "Sviatoslav Dudik"
+
+named-mailboxes "Home" ="Home/Home"
+named-mailboxes "Home.Archives" ="Home/archives"
+named-mailboxes "Home.Sent" ="Home/sent"
+named-mailboxes "Home.Trash" ="Home/trash"
+
+set mbox = "+Home/archives"
+set trash = "+Home/trash"
+set record = "+Home/sent"
+
+# PGP
+set pgp_default_key = "0x7947FB13393248DB"
+set crypt_replyencrypt = yes
+set crypt_replysign = yes
+set crypt_replysignencrypted = yes
+
+unset imap_login
+unset signature

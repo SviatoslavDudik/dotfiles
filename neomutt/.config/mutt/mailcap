@@ -1,1 +1,2 @@
-text/html;      surf -s -g -F %s;        copiousoutput
+text/html;      qutebrowser %s;
+text/plain;     /home/archie/.config/mutt/scripts/view-mail.sh %s;   copiousoutput
