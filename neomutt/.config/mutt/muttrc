@@ -21,6 +21,8 @@ set edit_headers     = yes
 set editor           = "vim +/^$ +nohlsearch"
 set charset          = "utf-8"
 set query_command    = "abook --mutt-query %s"
+set mail_check_stats = yes
+set mail_check_stats_interval = 300
 
 set crypt_verify_sig = yes
 
