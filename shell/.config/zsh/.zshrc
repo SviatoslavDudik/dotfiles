@@ -1,4 +1,4 @@
-autoload -Uz compinit up-line-or-beginning-search down-line-or-beginning-search
+autoload -Uz compinit up-line-or-beginning-search down-line-or-beginning-search add-zsh-hook
 
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
 export HISTSIZE=10000
@@ -11,7 +11,18 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 bindkey "^R" history-incremental-search-backward
 
-PROMPT='%(?..%B%F{red}%?%f%b )%B%F{blue}%n%f%b@%m %B%~%b %(!.%F{red}#%f.%%) '
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+	eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+source "$XDG_CONFIG_HOME/zsh/prompt"
+add-zsh-hook -Uz preexec save_time
+add-zsh-hook -Uz precmd calc_time
+setopt PROMPT_SUBST
+PROMPT='%F{blue}%1d%f%F{yellow}%(?..!)%f%F{red}%(!.#.$)%f '
+RPROMPT='%F{#696969}${elapsed_time}%f $(gitprompt)%F{blue}%~%f'
 
 source "$XDG_CONFIG_HOME"/zsh/aliasrc
 alias wake="notify-send 'Terminal task completed'"
