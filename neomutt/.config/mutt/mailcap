@@ -1,2 +1,2 @@
-text/html;      qutebrowser %s;
-text/plain;     /home/archie/.config/mutt/scripts/view-mail.sh %s;   copiousoutput
+text/html;      qutebrowser %s; copiousoutput
+text/plain;     /home/archie/.config/mutt/scripts/view-mail.sh %s; copiousoutput
