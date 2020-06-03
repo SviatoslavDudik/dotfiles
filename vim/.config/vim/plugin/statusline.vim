@@ -1,13 +1,14 @@
 scriptencoding utf-8
 
 if has('statusline')
+	let s:slctermbg = statusline#ctermbg()
 	highlight User1 ctermfg=250 ctermbg=1
-	highlight User2 ctermfg=245 ctermbg=236
-	highlight User3 cterm=bold ctermfg=250 ctermbg=236
-	highlight User4 cterm=italic ctermfg=240 ctermbg=236
-	highlight User5 ctermfg=1 ctermbg=236
 	highlight User6 ctermfg=0 ctermbg=6
-	highlight User7 ctermfg=6 ctermbg=236
+	execute('highlight User2 ctermfg=245 ctermbg='.s:slctermbg)
+	execute('highlight User3 cterm=bold ctermfg=250 ctermbg='.s:slctermbg)
+	execute('highlight User4 cterm=italic ctermfg=240 ctermbg='.s:slctermbg)
+	execute('highlight User5 ctermfg=1 ctermbg='.s:slctermbg)
+	execute('highlight User7 ctermfg=6 ctermbg='.s:slctermbg)
 	set statusline=%1*         " use User1 highlight
 	set statusline+=%3n        " buffer number
 	set statusline+=\          " space

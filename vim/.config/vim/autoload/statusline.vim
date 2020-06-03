@@ -1,3 +1,14 @@
+function statusline#ctermbg()
+	let s:colors = split(execute('highlight Statusline'),' ')
+	let s:colors = filter(s:colors, 'v:val=~"ctermbg=[0-9]*"')
+	if len(s:colors) == 0
+		echom "No background color for statusline"
+		return 0
+	endif
+	let s:colornum = matchstr(s:colors[0], "[0-9]*$")
+	return s:colornum
+endfunction
+
 function statusline#fileprefix()
 	let pathlist = split(expand('%'),'/')
 	if len(pathlist) < 2
