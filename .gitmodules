@@ -10,3 +10,6 @@
 [submodule "onedark.vim"]
 	path = vim/.config/vim/pack/look/opt/onedark.vim
 	url = https://github.com/joshdick/onedark.vim
+[submodule "vim-commentary"]
+	path = vim/.config/vim/pack/func/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
