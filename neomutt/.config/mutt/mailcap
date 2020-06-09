@@ -1,2 +1,2 @@
-text/html;      qutebrowser %s; copiousoutput
+text/html;      w3m -I %{charset} -T text/html; copiousoutput
 text/plain;     /home/archie/.config/mutt/scripts/view-mail.sh %s; copiousoutput

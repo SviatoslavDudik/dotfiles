@@ -16,4 +16,8 @@ bind index,pager \CO sidebar-open
 bind index,pager \CF sidebar-next-new
 
 macro index,pager \CA "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+macro index <F2> <sync-mailbox><change-folder>Home<Return>
+macro index <F3> <sync-mailbox><change-folder>Study<Return>
+macro index <F4> <sync-mailbox><change-folder>Work<Return>
+
 bind editor <Tab> complete-query

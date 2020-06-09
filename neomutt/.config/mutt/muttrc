@@ -28,6 +28,7 @@ set crypt_verify_sig = yes
 
 set mailcap_path     = "~/.config/mutt/mailcap"
 auto_view application/pdf
+alternative_order text/plain text/enriched text/html
 
 source ~/.config/mutt/accounts/personal
 source ~/.config/mutt/accounts/study
