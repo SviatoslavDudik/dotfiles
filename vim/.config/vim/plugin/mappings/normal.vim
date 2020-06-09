@@ -1,6 +1,11 @@
 nnoremap c* *Ncgn
 " folds
-nnoremap <s-tab> za
+nnoremap <tab> za
+
+" rely on xbindkey & xdotool to simulate F6 when C-i is pressed
+" this has been done to avoid conflicts with tab
+nnoremap <F6> <C-i>
+
 " Fugitive
 nnoremap dgh :diffget //2<CR>
 nnoremap dgl :diffget //3<CR>
@@ -12,16 +17,20 @@ nnoremap <C-l> <C-w>l
 " leader
 nnoremap <leader>sp :call buffer#spelling#fixlast()<CR>
 nnoremap <leader>c :w! \| !~/.local/bin/compiler.sh <c-r>%<CR><CR>
+nnoremap <leader>n :nohlsearch<CR>
+nnoremap <leader>o :only<CR>
 nnoremap <leader>p :!~/.local/bin/openup.sh <c-r>%<CR><CR>
 nnoremap <leader>r :!~/.local/bin/clean.sh <c-r>%<CR><CR>
-nnoremap <leader>w :s/\(<c-r>=expand("<cword>")<cr>\)/
-nnoremap <leader>o :only<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>t mm:%s/\s\+$//e<CR>`m
-noremap <leader><Tab> <Esc>/<++><CR>"_c4l
+nnoremap <leader>q :quit<CR>
+nnoremap <leader>w :write<CR>
+nnoremap <leader>x :xit<CR>
+nnoremap <silent> <leader>zz :call mappings#zap()<CR>
+nnoremap <leader><Tab> <Esc>/<++><CR>"_c4l
+nnoremap <leader><leader> <C-^>
 " other
-nnoremap <C-n> :Explore<CR>
+nnoremap - :15Lexplore<CR>
 nnoremap <F7> :call deadkeys#toggle()<CR>
+nnoremap <expr> <CR> empty(&buftype)? '@@' : '<CR>'
 nnoremap <Up> :cprevious<CR>
 nnoremap <Down> :cnext<CR>
 nnoremap <Left> :cpfile<CR>
