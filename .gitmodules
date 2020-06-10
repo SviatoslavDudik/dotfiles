@@ -13,3 +13,6 @@
 [submodule "vim-commentary"]
 	path = vim/.config/vim/pack/func/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
+[submodule "phpcomplete.vim"]
+	path = vim/.config/vim/pack/func/opt/phpcomplete.vim
+	url = https://github.com/shawncplus/phpcomplete.vim
