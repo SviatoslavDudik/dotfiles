@@ -1,0 +1,69 @@
+#!/bin/zsh
+
+function save_time() {
+	last_time=$(date +%s%N)
+}
+
+function calc_time() {
+	if [ $last_time ]; then
+		now=$(date +%s%N)
+		delta=$(( ($now - $last_time)/10000000 ))
+		unset last_time
+		days=$(( $delta / 8640000 ))
+		delta=$(( $delta - 8640000*$days ))
+		hours=$(( $delta/360000 ))
+		delta=$(( $delta - 360000*$hours ))
+		mins=$(( $delta/6000 ))
+		delta=$(( $delta - 6000*$mins ))
+		secs=$(( $delta/100 ))
+		delta=$(($delta - 100*secs ))
+		cents=$delta
+		elapsed_time=""
+		[[ days -gt 0 ]] && elapsed_time="${elapsed_time}${days}d"
+		[[ hours -gt 0 ]] && elapsed_time="${elapsed_time}${hours}h"
+		[[ mins -gt 0 ]] && elapsed_time="${elapsed_time}${mins}m"
+		if [[ mins -gt 0 || hours -gt 0 || days -gt 0 ]]; then
+			elapsed_time="${elapsed_time}${secs}s"
+		else
+			elapsed_time="${elapsed_time}${secs}.${(l:2::0:)cents}s"
+		fi
+	fi
+}
+
+function git_branch() {
+	if git rev-parse --is-inside-work-tree>/dev/null 2>&1; then
+		print "${$(git status 2>/dev/null | sed 1q)##* }"
+	fi
+}
+
+function git_haschanges() {
+	if git rev-parse --is-inside-work-tree>/dev/null 2>&1; then
+		if ! git diff --quiet; then
+			print '•'
+		fi
+	fi
+}
+
+function git_hasstaged() {
+	if git rev-parse --is-inside-work-tree>/dev/null 2>&1; then
+		if ! git diff --cached --quiet; then
+			print '•'
+		fi
+	fi
+}
+
+function git_hasdesync() {
+	if git rev-parse --is-inside-work-tree>/dev/null 2>&1; then
+		st="$(git status 2>/dev/null | sed '2p;d')"
+		if ! [[ "$st" =~ ".*is up to date.*" ]]; then
+			print '•'
+		fi
+	fi
+}
+
+function gitprompt() {
+	if git rev-parse --is-inside-work-tree>/dev/null 2>&1; then
+		print "[$(git_branch)%F{red}$(git_haschanges)%f%F{green}$(git_hasstaged)%f%F{blue}$(git_hasdesync)%f] "
+	fi
+}
+
