@@ -1,48 +1,14 @@
 let mapleader=" "
 
 set nocompatible
-""""""""""""""""""""""""""""""""""""""""""
-" Files, backups and undo
-""""""""""""""""""""""""""""""""""""""""""
-set undodir=$XDG_DATA_HOME/vim/undo
-set directory=$XDG_DATA_HOME/vim/swap
-set backupdir=$XDG_DATA_HOME/vim/backup
-set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set runtimepath+=$XDG_CONFIG_HOME/vim/
 set runtimepath+=$XDG_CONFIG_HOME/vim/after
 set runtimepath+=$XDG_CONFIG_HOME/vim/plugin
 set runtimepath+=$XDG_CONFIG_HOME/vim/ftplugin
 set packpath=$XDG_CONFIG_HOME/vim
 
-""""""""""""""""""""""""""""""""""""""""""
-" Basics
-""""""""""""""""""""""""""""""""""""""""""
-set showcmd
-set relativenumber
-set number
-
-set laststatus=2
-set novisualbell
-set notimeout ttimeout ttimeoutlen=200
-set shiftwidth=4
-set shiftround
-set tabstop=4
-
-set cin
-set listchars=tab:··
-set list
-set showmatch
-
-set spelllang=en,fr
-set complete+=kspell
-set splitbelow
-set splitright
-set wildmode=longest,list,full
 " make make silent
 set makeprg=make\ -s
-set path+=**
-" use folds
-set foldlevelstart=1
 " italic text
 set t_ZH=[3m
 set t_ZR=[23m

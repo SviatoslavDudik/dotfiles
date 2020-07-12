@@ -1,3 +1,3 @@
 if !functions#ispackageloaded('coc.nvim')
-	packadd coc.nvim
+	autocmd User Defferboot packadd coc.nvim
 endif
