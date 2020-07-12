@@ -11,22 +11,25 @@ set header_cache = ~/.cache/mutt
 set message_cachedir = "~/.cache/mutt"
 set net_inc = 5
 
-set folder           = "~/.mail/"
-set spoolfile        = "+Home/Home"
-set mbox_type        = Maildir
-set envelope_from    = yes
-set sendmail         = "/usr/bin/msmtp"
 set beep             = no
+set charset          = "utf-8"
 set edit_headers     = yes
 set editor           = "vim +/^$ +nohlsearch"
-set charset          = "utf-8"
-set query_command    = "abook --mutt-query %s"
+set envelope_from    = yes
+set folder           = "~/.mail/"
 set mail_check_stats = yes
 set mail_check_stats_interval = 300
+set mbox_type        = Maildir
+set move             = yes
+set query_command    = "abook --mutt-query %s"
+set sendmail         = "/usr/bin/msmtp"
+set sort=threads
+set sort_aux=last-date-received
+set spoolfile        = "+Home/Home"
 
 set crypt_verify_sig = yes
-
 set mailcap_path     = "~/.config/mutt/mailcap"
+
 auto_view application/pdf
 alternative_order text/plain text/enriched text/html
 

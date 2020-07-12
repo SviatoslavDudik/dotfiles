@@ -23,20 +23,20 @@ Channel sync-gmail-personal-default
 Master :gmail-personal-remote:
 Slave :gmail-personal-local:
 # Select some mailboxes to sync
-Patterns "INBOX" "archives"
-Create Master
+Patterns "INBOX" "archives" "receipt"
+Create Both
 Expunge Both
 
 Channel sync-gmail-personal-sent
 Master :gmail-personal-remote:"[Gmail]/Sent Mail"
 Slave :gmail-personal-local:sent
-Create Slave
+Create Both
 Expunge Slave
 
 Channel sync-gmail-personal-trash
 Master :gmail-personal-remote:"[Gmail]/Trash"
 Slave :gmail-personal-local:trash
-Create Slave
+Create Both
 Expunge Slave
 
 Group gmail-personal
@@ -61,7 +61,7 @@ Inbox ~/.mail/Study/Inbox
 Channel sync-paris13
 Master :paris13-remote:
 Slave :paris13-local:
-Patterns "INBOX" "INBOX/Sent"
+Patterns "INBOX" "Archive" "Sent" "Trash"
 Create Both
 Expunge Both
 
@@ -90,7 +90,8 @@ Channel sync-gmail-work-default
 Master :gmail-work-remote:
 Slave :gmail-work-local:
 # Select some mailboxes to sync
-Patterns "INBOX"
+Patterns "INBOX" "archives"
+Create Both
 Expunge Both
 
 Channel sync-gmail-work-sent
