@@ -2,16 +2,12 @@ set from             = "sviatoslav.dudik@gmail.com"
 set use_from         = yes
 set realname         = "Sviatoslav Dudik"
 
-named-mailboxes "Work" +"Work/Work"
-named-mailboxes "Work.Archives" +"Work/archives"
-named-mailboxes "Work.Sent" +"Work/sent"
-named-mailboxes "Work.Trash" +"Work/trash"
+virtual-mailboxes "Work" "notmuch://?query=tag:work"
+virtual-mailboxes "Work.Archive" "notmuch://?query=tag:work and tag:archive"
+virtual-mailboxes "Work.Sent" "notmuch://?query=tag:work and tag:sent"
+virtual-mailboxes "Work.Trash" "notmuch://?query=tag:work and tag:trash"
 
-set mbox ="+Work/archives"
-set trash = "+Work/trash"
 set record = "+Work/sent"
-
-mbox-hook +Work/Work +Work/archives
 
 unset imap_login
 unset signature

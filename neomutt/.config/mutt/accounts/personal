@@ -2,14 +2,14 @@ set from             = "slavdudik303@gmail.com"
 set use_from         = yes
 set realname         = "Sviatoslav Dudik"
 
-named-mailboxes "Home" +"Home/Home"
-named-mailboxes "Home.Archive" +"Home/archives"
-named-mailboxes "Home.Receipt" +"Home/receipt"
-named-mailboxes "Home.Sent" +"Home/sent"
-named-mailboxes "Home.Trash" +"Home/trash"
+virtual-mailboxes "Home" "notmuch://?query=tag:home"
+virtual-mailboxes "Home.Archive" "notmuch://?query=tag:home and tag:archive"
+virtual-mailboxes "Home.Newsletter" "notmuch://?query=tag:home and tag:newsletter"
+virtual-mailboxes "Home.Receipt" "notmuch://?query=tag:home and tag:receipt"
+virtual-mailboxes "Home.Sent" "notmuch://?query=tag:home and tag:sent"
+virtual-mailboxes "Home.Trash" "notmuch://?query=tag:home and tag:trash"
+virtual-mailboxes "Home.Travel" "notmuch://?query=tag:home and tag:travel"
 
-set mbox = "+Home/archives"
-set trash = "+Home/trash"
 set record = "+Home/sent"
 
 # PGP
@@ -18,8 +18,6 @@ set crypt_replyencrypt = yes
 set crypt_replysign = yes
 set crypt_replysignencrypted = yes
 set crypt_verify_sig = yes
-
-mbox-hook +Home/Home +Home/archives
 
 unset imap_login
 unset signature

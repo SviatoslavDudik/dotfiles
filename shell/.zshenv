@@ -7,6 +7,7 @@ export XDG_CONFIG_DIRS=/etc/xdg
 export PATH=$PATH:$HOME/.local/bin
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
+export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export MAILCAPS="$XDG_CONFIG_HOME"/mutt/mailcap

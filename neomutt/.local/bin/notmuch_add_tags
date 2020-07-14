@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+notmuch tag +home "path:Home/**"
+notmuch tag +work "path:Work/**"
+notmuch tag +study "path:Study/**"
+
+notmuch tag +sent -inbox -unread "path:Home/sent/** or path:Study/Sent/** or path:Work/sent/**"
+notmuch tag +receipt subject:facture or subject:receipt

@@ -2,17 +2,12 @@ set from             = "sviatoslav.dudik@edu.univ-paris13.fr"
 set use_from         = yes
 set realname         = "Sviatoslav Dudik"
 
-named-mailboxes "Study" +"Study/Inbox"
-named-mailboxes "Study.Archive" +"Study/Archive"
-named-mailboxes "Study.Sent" +"Study/Sent"
-named-mailboxes "Study.Trash" +"Study/Trash"
+virtual-mailboxes "Study" "notmuch://?query=tag:study"
+virtual-mailboxes "Study.Archive" "notmuch://?query=tag:study and tag:archive"
+virtual-mailboxes "Study.Sent" "notmuch://?query=tag:study and tag:sent"
+virtual-mailboxes "Study.Trash" "notmuch://?query=tag:study and tag:trash"
 
-set mbox = "+Study/Archive"
 set record = "+Study/Sent"
-set trash = "+Study/Trash"
-
-mbox-hook +Study/Inbox +Study/Archive
-
 set signature        = "~/.config/mutt/signature_study"
 
 unset pgp_default_key
