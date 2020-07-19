@@ -37,6 +37,7 @@ macro index \\ "<vfolder-from-query>" "Search mailbox"
 macro index <F2> <sync-mailbox><change-folder>Home<Return>
 macro index <F3> <sync-mailbox><change-folder>Study<Return>
 macro index <F4> <sync-mailbox><change-folder>Work<Return>
+macro index <F5> <sync-mailbox><change-folder>All<Return>
 
 bind editor <Tab> complete-query
 bind index <space> collapse-thread

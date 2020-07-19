@@ -39,6 +39,8 @@ alternative_order text/plain text/enriched text/html
 source ~/.config/mutt/accounts/personal
 source ~/.config/mutt/accounts/study
 source ~/.config/mutt/accounts/work
+
+virtual-mailboxes "All" 'notmuch://?query=*'
 set from = "slavdudik303@gmail.com"
 
 
