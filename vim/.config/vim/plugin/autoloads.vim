@@ -5,3 +5,6 @@ augroup Idleload
 		autocmd CursorHold,CursorHoldI * call autocmds#idleload()
 	endif
 augroup END
+
+autocmd! User GoyoEnter nested call plugin#goyo#enter()
+autocmd! User GoyoLeave nested call plugin#goyo#leave()

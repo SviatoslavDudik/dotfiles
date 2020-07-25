@@ -26,6 +26,7 @@ match Jump '<++>'
 if has('packages')
 	" here packadd!
 	"packadd! onedark.vim
+	packadd! goyo.vim
 endif
 
 set background=dark

@@ -16,3 +16,6 @@
 [submodule "phpcomplete.vim"]
 	path = vim/.config/vim/pack/func/opt/phpcomplete.vim
 	url = https://github.com/shawncplus/phpcomplete.vim
+[submodule "goyo.vim"]
+	path = vim/.config/vim/pack/look/opt/goyo.vim
+	url = https://github.com/junegunn/goyo.vim
