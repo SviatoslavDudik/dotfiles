@@ -36,6 +36,7 @@ set tabstop=4                          " tab = 4 spaces
 set formatoptions+=j                   " join comments smartly
 set nojoinspaces                       " don't autoinsert space when joining lines
 set textwidth=80                       " hard wrap at 80 columns
+set scrolloff=5                        " show 5 lines above and below the cursor
 
 if has('linebreak')
 	let &showbreak='⮡ '
