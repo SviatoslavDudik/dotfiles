@@ -1,0 +1,11 @@
+#!/bin/sh
+
+layout=$(setxkbmap -query | grep layout | awk '{printf $2}')
+
+case $layout in
+	'us') setxkbmap -layout fr;;
+	'fr') setxkbmap -layout ua;;
+	*) setxkbmap -layout us && xmodmap $XDG_CONFIG_HOME/X11/keymaps &;;
+esac
+
+refbar

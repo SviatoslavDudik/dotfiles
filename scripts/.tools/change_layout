@@ -1,9 +1,0 @@
-#!/bin/sh
-
-layout=$(setxkbmap -query | grep layout | awk '{printf $2}')
-
-case $layout in
-	'us') setxkbmap -layout fr && exit;;
-	'fr') setxkbmap -layout ua && exit;;
-	*) setxkbmap -layout us;;
-esac
