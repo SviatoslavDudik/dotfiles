@@ -18,6 +18,6 @@ bind-key x pb-delete
 
 browser "qutebrowser "
 macro w set browser "w3m"; open-in-browser ; set browser browser
-macro d set browser "st youtube-dl %u &" ; open-in-browser ; set browser browser
-macro v set browser "st mpv '%u' &" ; open-in-browser ; set browser browser
+macro d set browser "$TERMINAL youtube-dl %u &" ; open-in-browser ; set browser browser
+macro v set browser "$TERMINAL mpv '%u' &" ; open-in-browser ; set browser browser
 
