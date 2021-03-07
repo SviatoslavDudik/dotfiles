@@ -1,3 +1,3 @@
 text/html;      w3m -I %{charset} -T text/html; copiousoutput
-text/plain;     /home/archie/.config/mutt/scripts/view-mail.sh %s; copiousoutput
+text/plain;     /home/archie/.config/mutt/scripts/view-mail.sh %s;
 application/pdf; mupdf %s

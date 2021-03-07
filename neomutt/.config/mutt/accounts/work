@@ -2,10 +2,10 @@ set from             = "sviatoslav.dudik@gmail.com"
 set use_from         = yes
 set realname         = "Sviatoslav Dudik"
 
-virtual-mailboxes "Work" "notmuch://?query=tag:work"
-virtual-mailboxes "Work.Archive" "notmuch://?query=tag:work and tag:archive"
-virtual-mailboxes "Work.Sent" "notmuch://?query=tag:work and tag:sent"
-virtual-mailboxes "Work.Trash" "notmuch://?query=tag:work and tag:trash"
+named-mailboxes "Work" "notmuch://?query=tag:work" \
+	"  Archive" "notmuch://?query=tag:work and tag:archive" \
+	"  Sent" "notmuch://?query=tag:work and tag:sent" \
+	"  Trash" "notmuch://?query=tag:work and tag:trash"
 
 set record = "+Work/sent"
 

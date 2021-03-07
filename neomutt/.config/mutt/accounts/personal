@@ -2,13 +2,13 @@ set from             = "slavdudik303@gmail.com"
 set use_from         = yes
 set realname         = "Sviatoslav Dudik"
 
-virtual-mailboxes "Home" "notmuch://?query=tag:home"
-virtual-mailboxes "Home.Archive" "notmuch://?query=tag:home and tag:archive"
-virtual-mailboxes "Home.Newsletter" "notmuch://?query=tag:home and tag:newsletter"
-virtual-mailboxes "Home.Receipt" "notmuch://?query=tag:home and tag:receipt"
-virtual-mailboxes "Home.Sent" "notmuch://?query=tag:home and tag:sent"
-virtual-mailboxes "Home.Trash" "notmuch://?query=tag:home and tag:trash"
-virtual-mailboxes "Home.Travel" "notmuch://?query=tag:home and tag:travel"
+named-mailboxes "Home" "notmuch://?query=tag:home" \
+	"  Archive" "notmuch://?query=tag:home and tag:archive" \
+	"  Newsletter" "notmuch://?query=tag:home and tag:newsletter" \
+	"  Receipt" "notmuch://?query=tag:home and tag:receipt" \
+	"  Sent" "notmuch://?query=tag:home and tag:sent" \
+	"  Trash" "notmuch://?query=tag:home and tag:trash" \
+	"  Travel" "notmuch://?query=tag:home and tag:travel"
 
 set record = "+Home/sent"
 

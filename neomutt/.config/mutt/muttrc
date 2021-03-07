@@ -12,7 +12,7 @@ set message_cachedir = "~/.cache/mutt"
 set net_inc = 5
 
 set nm_default_url   = "notmuch:///home/archie/.mail/"
-virtual-mailboxes "Inbox" "notmuch://?query=tag:inbox"
+named-mailboxes "Inbox" "notmuch://?query=tag:inbox"
 
 set beep             = no
 set charset          = "utf-8"
@@ -40,7 +40,7 @@ source ~/.config/mutt/accounts/personal
 source ~/.config/mutt/accounts/study
 source ~/.config/mutt/accounts/work
 
-virtual-mailboxes "All" 'notmuch://?query=*'
+named-mailboxes "All" "notmuch://?query=*"
 set from = "slavdudik303@gmail.com"
 
 
