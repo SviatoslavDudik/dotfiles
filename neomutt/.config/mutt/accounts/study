@@ -13,5 +13,5 @@ set trash            = "+INBOX/Trash"
 set postponed        = "+INBOX/Drafts"
 
 set realname         = "Sviatoslav Dudik"
-set signature        = "~/.config/mutt/signature_study"
+set signature        = "~/.config/mutt/accounts/signature_study"
 
