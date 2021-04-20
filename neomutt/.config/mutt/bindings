@@ -24,20 +24,9 @@ macro index \cb "\
 :unset my_tmp_pipe_decode\n" \
 'call urlview to extract URLs out of a message'
 
-# 'L' performs a notmuch query, showing only the results
-macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
-# 'a' shows all messages again (supersedes default <alias> binding)
-macro index a "<limit>all\n" "show all messages (undo limit)"
-macro index A "<modify-labels>+archive -inbox -unread\n"
-macro index D "<modify-labels-then-hide>-inbox -unread +trash\n"
-macro index I "<modify-labels>-inbox -unread\n"
-macro index E "<modify-labels>"
-macro index \\ "<vfolder-from-query>" "Search mailbox"
-
-macro index <F2> <sync-mailbox><change-folder>Home<Return>
-macro index <F3> <sync-mailbox><change-folder>Study<Return>
-macro index <F4> <sync-mailbox><change-folder>Work<Return>
-macro index <F5> <sync-mailbox><change-folder>All<Return>
-
 bind editor <Tab> complete-query
 bind index <space> collapse-thread
+
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/accounts/personal<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/accounts/study<enter><change-folder>!<enter>'
+macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/mutt/accounts/work<enter><change-folder>!<enter>'

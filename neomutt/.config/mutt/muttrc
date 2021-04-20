@@ -1,46 +1,54 @@
-folder-hook '~/.mail/Home' 'source ~/.config/mutt/accounts/personal'
-folder-hook '~/.mail/Study' 'source ~/.config/mutt/accounts/study'
-folder-hook '~/.mail/Work' 'source ~/.config/mutt/accounts/work'
+source '~/.config/mutt/accounts/work'
+folder-hook $folder 'source ~/.config/mutt/accounts/work'
+source '~/.config/mutt/accounts/study'
+folder-hook $folder 'source ~/.config/mutt/accounts/study'
+source '~/.config/mutt/accounts/personal'
+folder-hook $folder 'source ~/.config/mutt/accounts/personal'
 
 source ~/.config/mutt/gpg.rc
 source ~/.config/mutt/sidebar
-source ~/.config/mutt/theme
 source ~/.config/mutt/bindings
 
+set imap_check_subscribed
 set header_cache = ~/.cache/mutt
-set message_cachedir = "~/.cache/mutt"
+#set message_cachedir = "~/.cache/mutt"
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 120
 set net_inc = 5
 
-set nm_default_url   = "notmuch:///home/archie/.mail/"
-named-mailboxes "Inbox" "notmuch://?query=tag:inbox"
-
-set beep             = no
-set charset          = "utf-8"
-set edit_headers     = yes
-set editor           = "vim +/^$ +nohlsearch"
 set envelope_from    = yes
-set folder           = ~/.mail/
 set mail_check_stats = yes
 set mail_check_stats_interval = 300
-set mbox_type        = Maildir
 set move             = no
 set query_command    = "abook --mutt-query %s"
 set sendmail         = "/usr/bin/msmtp"
-set sort             = threads
-set sort_aux         = last-date-received
-set virtual_spoolfile = yes
+set beep             = no
+set editor           = "vim"
+set charset          = "utf-8"
 
-set crypt_verify_sig = yes
-set mailcap_path     = "~/.config/mutt/mailcap"
+auto_view text/html
+alternative_order text/enriched text/plain text/html
 
-auto_view application/pdf
-alternative_order text/plain text/enriched text/html
+mono bold bold
+mono underline underline
+mono indicator reverse
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.s'
+color index_size green default
+color normal default default
+color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (http|ftp)s?://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
-source ~/.config/mutt/accounts/personal
-source ~/.config/mutt/accounts/study
-source ~/.config/mutt/accounts/work
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
-named-mailboxes "All" "notmuch://?query=*"
-set from = "slavdudik303@gmail.com"
-
-
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry

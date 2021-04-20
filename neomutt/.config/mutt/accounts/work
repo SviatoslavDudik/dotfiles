@@ -1,16 +1,17 @@
-set from             = "sviatoslav.dudik@gmail.com"
+source "echo set my_pass=$(pass gmail/dudiksviatoslav/mail-client)|"
+set from             = "dudiksviatoslav@gmail.com"
 set use_from         = yes
+
+set folder           = imaps://dudiksviatoslav@imap.gmail.com/
+set imap_user        = "dudiksviatoslav@gmail.com"
+set imap_pass        = $my_pass
+
+set spoolfile        = "+INBOX"
+set record           = "+[Gmail]/Messages envoyés"
+set trash            = "+[Gmail]/Corbeille"
+set postponed        = "+[Gmail]/Brouillons"
+
 set realname         = "Sviatoslav Dudik"
-
-named-mailboxes "Work" "notmuch://?query=tag:work" \
-	"  Archive" "notmuch://?query=tag:work and tag:archive" \
-	"  Sent" "notmuch://?query=tag:work and tag:sent" \
-	"  Trash" "notmuch://?query=tag:work and tag:trash"
-
-set record = "+Work/sent"
 
 unset imap_login
 unset signature
-
-unset pgp_default_key
-unset pgp_sign_as

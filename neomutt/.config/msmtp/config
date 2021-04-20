@@ -14,9 +14,9 @@ passwordeval "pass gmail/slavdudik303/mail-client"
 account work
 host smtp.gmail.com
 port 587
-from sviatoslav.dudik@gmail.com
-user sviatoslavdudik@gmail.com
-passwordeval "pass gmail/sviatoslavdudik/mail-client"
+from dudiksviatoslav@gmail.com
+user dudiksviatoslav@gmail.com
+passwordeval "pass gmail/dudiksviatoslav/mail-client"
 
 account study
 host smtp.univ-paris13.fr
