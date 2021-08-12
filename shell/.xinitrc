@@ -32,15 +32,22 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-if [ -f /usr/local/bin/dwm ]; then
-	session=${1:-dwm}
+# Set the default X cursor to the usual pointer
+xsetroot -cursor_name left_ptr
+
+# Set a nice background
+feh --bg-fill --no-fehbg ~/Pictures/x220.png
+
+if [ -f ~/.local/bin/xmonad ]; then
+	session=${1:-xmonad}
 else
-	session=${1:-i3}
+	session=${1:-dwm}
 fi
 
 
 case "$session" in
 	i3|i3wm) exec /usr/bin/i3 ;;
 	dwm) exec /usr/local/bin/dwm ;;
+	xmonad) exec ~/.local/bin/xmonad ;;
 	*) exec $1 ;;
 esac
