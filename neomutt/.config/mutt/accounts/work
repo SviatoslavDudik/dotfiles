@@ -1,15 +1,15 @@
-source "echo set my_pass=$(pass gmail/dudiksviatoslav/mail-client)|"
-set from             = "dudiksviatoslav@gmail.com"
+source "echo set my_pass=$(pass gmail/sviatoslavdudik/mail-client)|"
+set from             = "sviatoslavdudik@gmail.com"
 set use_from         = yes
 
-set folder           = imaps://dudiksviatoslav@imap.gmail.com/
-set imap_user        = "dudiksviatoslav@gmail.com"
+set folder           = imaps://sviatoslavdudik@imap.gmail.com/
+set imap_user        = "sviatoslavdudik@gmail.com"
 set imap_pass        = $my_pass
 
 set spoolfile        = "+INBOX"
-set record           = "+[Gmail]/Messages envoyés"
-set trash            = "+[Gmail]/Corbeille"
-set postponed        = "+[Gmail]/Brouillons"
+set record           = "+[Gmail]/Sent"
+set trash            = "+[Gmail]/Trash"
+set postponed        = "+[Gmail]/Drafts"
 
 set realname         = "Sviatoslav Dudik"
 
