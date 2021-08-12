@@ -4,7 +4,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_DATA_DIRS=/usr/local/share:/usr/share
 export XDG_CONFIG_DIRS=/etc/xdg
 
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/github/flutter/bin:$HOME/adb/platform-tools/
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config

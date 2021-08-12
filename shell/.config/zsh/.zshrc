@@ -5,6 +5,9 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 setopt appendhistory
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+fpath=($HOME/.local/share/gem/ruby/3.0.0/gems/timetrap-1.15.2/completions/zsh $fpath)
+export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin
+
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
