@@ -62,3 +62,7 @@ export TLDR_CODE='red'
 export TLDR_PARAM='blue'
 
 echoti clear
+
+# GPG for SSH
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
