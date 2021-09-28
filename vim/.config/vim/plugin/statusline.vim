@@ -2,6 +2,7 @@ scriptencoding utf-8
 
 if has('statusline')
 	let s:slctermbg = statusline#ctermbg()
+	let s:slctermbg = 0
 	highlight User1 ctermfg=250 ctermbg=1
 	highlight User6 ctermfg=0 ctermbg=6
 	execute('highlight User2 ctermfg=245 ctermbg='.s:slctermbg)

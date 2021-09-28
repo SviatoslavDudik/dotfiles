@@ -13,6 +13,8 @@ set makeprg=make\ -s
 set t_ZH=[3m
 set t_ZR=[23m
 
+highlight StatusLine ctermbg=0 cterm=bold
+
 " detect filetype
 silent let s:filelist = systemlist("ls $XDG_CONFIG_HOME/vim/ftdetect/")
 for s:filename in s:filelist
