@@ -11,8 +11,7 @@ source ~/.config/mutt/bindings
 
 set imap_check_subscribed
 set header_cache = ~/.cache/mutt
-#set message_cachedir = "~/.cache/mutt"
-unset imap_passive
+set imap_passive = yes
 set imap_keepalive = 300
 set mail_check = 120
 set net_inc = 5
@@ -34,13 +33,13 @@ mono bold bold
 mono underline underline
 mono indicator reverse
 color index yellow default '.*'
-color index_author red default '.*'
-color index_number blue default
-color index_subject cyan default '.s'
-color index_size green default
+color index red default 'urgent'
 color normal default default
 color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 color body brightblue default (http|ftp)s?://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+color sidebar_highlight underline default default
+color sidebar_indicator magenta default
+color sidebar_new cyan default
 
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
