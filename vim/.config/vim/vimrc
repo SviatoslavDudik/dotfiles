@@ -7,13 +7,18 @@ set runtimepath+=$XDG_CONFIG_HOME/vim/plugin
 set runtimepath+=$XDG_CONFIG_HOME/vim/ftplugin
 set packpath=$XDG_CONFIG_HOME/vim
 
+call plug#begin($XDG_CONFIG_HOME . '/vim/plugged')
+    Plug 'navarasu/onedark.nvim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'tpope/vim-fugitive'
+call plug#end()
+
 " make make silent
 set makeprg=make\ -s
 " italic text
 set t_ZH=[3m
 set t_ZR=[23m
-
-highlight StatusLine ctermbg=0 cterm=bold
 
 " detect filetype
 silent let s:filelist = systemlist("ls $XDG_CONFIG_HOME/vim/ftdetect/")
@@ -25,17 +30,4 @@ endfor
 highlight link Jump Function
 match Jump '<++>'
 
-if has('packages')
-	" here packadd!
-	"packadd! onedark.vim
-	packadd! goyo.vim
-endif
-
-set background=dark
-if filereadable(expand("~/.vimrc_background"))
-	let base16colorspace=256
-	source ~/.vimrc_background
-endif
-
-filetype plugin indent on
-syntax on
+colorscheme onedark

@@ -19,3 +19,6 @@
 [submodule "goyo.vim"]
 	path = vim/.config/vim/pack/look/opt/goyo.vim
 	url = https://github.com/junegunn/goyo.vim
+[submodule "vim/.config/vim/pack/func/start/vim-octave"]
+	path = vim/.config/vim/pack/func/start/vim-octave
+	url = https://github.com/McSinyx/vim-octave.git

@@ -1,8 +1,8 @@
 #!/bin/sh
 
 export PATH="$PATH:~/bin:~/.tools"
-export TERMINAL=st
-export BROWSER=qutebrowser
+export TERMINAL=gnome-terminal
+export BROWSER=firefox
 export MAIL="$HOME/Mail"
 export VISUAL=vim
 export EDITOR=vim

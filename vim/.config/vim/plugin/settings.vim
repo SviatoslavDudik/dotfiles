@@ -29,9 +29,10 @@ set notimeout ttimeout ttimeoutlen=200
 
 set cindent                            " auto C indenting
 set autoindent                         " maintain indent of current line
+
+set expandtab
 set shiftwidth=4
-set shiftround                         " round indent to multiple of shiftwidth
-set tabstop=4                          " tab = 4 spaces
+set tabstop=4
 
 set formatoptions+=j                   " join comments smartly
 set nojoinspaces                       " don't autoinsert space when joining lines
