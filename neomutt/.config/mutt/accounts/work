@@ -5,6 +5,7 @@ set use_from         = yes
 set folder           = imaps://sviatoslavdudik@imap.gmail.com/
 set imap_user        = "sviatoslavdudik@gmail.com"
 set imap_pass        = $my_pass
+set sendmail         = "/usr/bin/msmtp -a work"
 
 set spoolfile        = "+INBOX"
 set record           = "+[Gmail]/Sent"

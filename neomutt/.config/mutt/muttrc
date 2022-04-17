@@ -5,7 +5,6 @@ folder-hook $folder 'source ~/.config/mutt/accounts/study'
 source '~/.config/mutt/accounts/personal'
 folder-hook $folder 'source ~/.config/mutt/accounts/personal'
 
-source ~/.config/mutt/gpg.rc
 source ~/.config/mutt/sidebar
 source ~/.config/mutt/bindings
 
@@ -21,7 +20,6 @@ set mail_check_stats = yes
 set mail_check_stats_interval = 300
 set move             = no
 set query_command    = "abook --mutt-query %s"
-set sendmail         = "/usr/bin/msmtp"
 set beep             = no
 set editor           = "vim"
 set charset          = "utf-8"
