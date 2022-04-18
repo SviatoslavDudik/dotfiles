@@ -1,6 +1,13 @@
 set directory=$XDG_DATA_HOME/vim/swap//
-set backupdir=$XDG_DATA_HOME/vim/backup
-set writebackup
+if exists('$SUDO_USER')
+    " don't create root-owned files
+    set nobackup
+    set nowritebackup
+else
+    set backupcopy=yes
+    set backupdir=$XDG_DATA_HOME/vim/backup
+    set writebackup
+endif
 if has('persistent_undo')
 	set undodir=$XDG_DATA_HOME/vim/undo
 	set undofile
