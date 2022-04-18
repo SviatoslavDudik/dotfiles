@@ -1,9 +1,9 @@
 Config { overrideRedirect = False
        , font     = "xft:iosevka-10"
        , additionalFonts  = ["xft:FontAwesome:size=10"]
-       , bgColor  = "#5f5f5f"
-       , fgColor  = "#f8f8f2"
-       , position = TopW L 100
+       , bgColor  = "#282c34"
+       , fgColor  = "#c8ccd4"
+       , position = TopW L 95
        , commands = [ Run Weather "LFPB"
                         [ "--template", "<windMs>m/s(<windCardinal>) <pressure>hPa <fn=1>\xf2c9</fn> <tempC>°C"
                         , "-L", "15"
@@ -20,7 +20,7 @@ Config { overrideRedirect = False
                         , "--normal", "green"
                         ] 10
                     , Run Alsa "default" "Master"
-                        [ "--template", "<status> <volume>%"
+                        [ "--template", "<status> <volume>"
                         , "--suffix"  , "True"
                         , "--"
                         , "--on", ""
@@ -40,7 +40,7 @@ Config { overrideRedirect = False
                         ] 100
                     , Run Memory ["--template", "<fn=1>\xf2db</fn> <usedratio>%"] 10
                     , Run Swap ["--template", "<usedratio>%"] 10
-                    , Run Date "<fn=1>\xf133</fn> %a %d/%m <fc=#8be9fd>%H:%M</fc>" "date" 10
+                    , Run Date "<fn=1>\xf133</fn> %a %d/%m <fc=#61afef>%H:%M</fc>" "date" 10
                     , Run StdinReader
                     ]
        , sepChar  = "%"

@@ -6,6 +6,7 @@ import XMonad.Hooks.ManageHelpers
 
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Magnifier
+import XMonad.Layout.Renamed
 
 import XMonad.ManageHook
 
@@ -27,13 +28,22 @@ myConfig = def
     , manageHook = myManageHook
     , terminal = "st"
     }
-    `additionalKeysP`
+    `additionalKeysP` myKeys
+
+myKeys =
     [ ("M-w", spawn "firefox") -- start Firefox
+    , ("M-S-p", spawn "passmenu -i -l 10") -- start password chooser
+    , ("M-S-x", spawn "i3lock -c 000000") -- lock the screen
+    , ("<XF86AudioRaiseVolume>", spawn "pulsemixer --change-volume +5") -- raise volume by 5 %
+    , ("<XF86AudioLowerVolume>", spawn "pulsemixer --change-volume -5") -- lower volume by 5 %
+    , ("<XF86AudioMute>", spawn "amixer set Master toggle && amixer set Headphone on && amixer set Speaker on") -- mute/unmute master
+    , ("<XF86AudioMicMute>", spawn "amixer sset Capture toggle") -- toggle the microphone
+    , ("<XF86TouchpadToggle>", spawn "toggle_touchpad.sh") -- toggle the touchpad
     ]
 
 myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
   where
-    threeCol = magnifiercz' 1.3 $ ThreeColMid nmaster delta ratio
+    threeCol = renamed [Replace "3ColZoom"] $ magnifiercz' 1.3 $ ThreeColMid nmaster delta ratio
     tiled    = Tall nmaster delta ratio
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
@@ -42,6 +52,7 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
 myManageHook :: ManageHook
 myManageHook = composeAll
     [ className =? "mpv"  --> doFullFloat
+    , className =? "mpv"  --> doShift "9"
     , isDialog            --> doFloat
     ]
 
@@ -57,8 +68,8 @@ myXmobarPP = def
     }
   where
     blue, lowWhite, magenta, red, white, yellow :: String -> String
-    magenta  = xmobarColor "#ff79c6" ""
-    blue     = xmobarColor "#bd93f9" ""
+    magenta  = xmobarColor "#c678dd" ""
+    blue     = xmobarColor "#56b6c2" ""
     white    = xmobarColor "#f8f8f2" ""
     yellow   = xmobarColor "#f1fa8c" ""
     red      = xmobarColor "#ff5555" ""
