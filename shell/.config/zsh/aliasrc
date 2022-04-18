@@ -1,10 +1,13 @@
 #!/bin/sh
 
 #alias xrdb=xrdb -load ~/.config/X11/xresources
+alias vim="nvim"
+alias r="radian"
 alias tmux='env TERM=screen-256color tmux'
 alias wget=wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 alias connect-air='bluetoothctl connect AC:90:85:CB:84:60&'
+alias connect-butts='bluetoothctl connect 98:09:CF:D2:8B:64&'
 alias btblock='sudo rfkill block bluetooth'
 alias btunblock='sudo rfkill unblock bluetooth'
 alias phptags='ctags -R --fields=+aimlS --languages=php --output-format=e-ctags'

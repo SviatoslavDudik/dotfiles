@@ -32,13 +32,18 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# Set up an icon tray
+trayer --edge top --align right --SetDockType true --SetPartialStrut true \
+	--expand true --width 5 --transparent true --alpha 0 --tint 0x282c34 \
+	--height &
+
 # Set the default X cursor to the usual pointer
 xsetroot -cursor_name left_ptr
 
 # Set a nice background
 feh --bg-fill --no-fehbg ~/Pictures/x220.png
 
-if [ -f ~/.local/bin/xmonad ]; then
+if [ -f /home/archie/.local/bin/xmonad ]; then
 	session=${1:-xmonad}
 else
 	session=${1:-dwm}
@@ -48,6 +53,7 @@ fi
 case "$session" in
 	i3|i3wm) exec /usr/bin/i3 ;;
 	dwm) exec /usr/local/bin/dwm ;;
-	xmonad) exec ~/.local/bin/xmonad ;;
+	xmonad) exec /home/archie/.local/bin/xmonad ;;
+	kde) exec /usr/bin/startplasma-x11 ;;
 	*) exec $1 ;;
 esac

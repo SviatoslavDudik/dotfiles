@@ -29,10 +29,6 @@ RPROMPT='%F{#696969}${elapsed_time}%f $(gitprompt)%F{blue}%~%f'
 
 source "$XDG_CONFIG_HOME"/zsh/aliasrc
 alias wake="notify-send 'Terminal task completed'"
-alias r="ranger"
-alias n="nnn"
-alias p="sudo pacman"
-alias v="vim"
 alias youtube-dl="noglob youtube-dl"
 se(){$EDITOR "$(find ~/.local/bin/* ~/.config/* | fzf --select-1 --exit-0)"}
 
@@ -69,6 +65,7 @@ echoti clear
 # GPG for SSH
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
+echo UPDATESTARTUPTTY | gpg-connect-agent &> /dev/null
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
