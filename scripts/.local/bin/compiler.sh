@@ -31,12 +31,14 @@ javafile() {
 
 latex() {
 	if [ -e "$base.glo" ]; then
-		lualatex "$file"
+		pdflatex "$file"
 		makeglossaries "$base"
 	fi
-	lualatex "$file"
+	pdflatex "$file"
 	update_pdf
 }
+
+[ -e Makefile ] && make all && exit
 
 case "$file" in
 	*\.c|*\.h) cfile ;;
