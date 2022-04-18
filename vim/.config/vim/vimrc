@@ -25,6 +25,7 @@ match Jump '<++>'
 if has('packages')
     packadd! onedark.vim
     colorscheme onedark
+    packadd! vim-ruby
 endif
 
 filetype plugin indent on

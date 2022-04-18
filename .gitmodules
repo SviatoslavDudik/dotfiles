@@ -24,3 +24,6 @@
 	url = https://github.com/jalvesaq/Nvim-R.git
 [submodule "Nvim-R"]
 	branch = stable
+[submodule "vim-ruby"]
+	path = vim/.local/share/nvim/site/pack/func/opt/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
