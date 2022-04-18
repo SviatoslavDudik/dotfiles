@@ -14,6 +14,10 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 bindkey "^R" history-incremental-search-backward
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^x' edit-command-line
+
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
@@ -39,8 +43,6 @@ bindkey -v
 alias :wq="echo \"You're not in vim dumbass\""
 alias rm="rm -I"
 alias please="sudo"
-
-alias matlab="/usr/local/Polyspace/R2019b/bin/matlab"
 
 # Colors
 alias grep="grep --color=auto"
