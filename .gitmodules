@@ -19,9 +19,6 @@
 [submodule "goyo.vim"]
 	path = vim/.local/share/nvim/site/pack/look/opt/goyo.vim
 	url = https://github.com/junegunn/goyo.vim
-[submodule "vim/.config/vim/pack/func/start/vim-octave"]
-	path = vim/.config/vim/pack/func/start/vim-octave
-	url = https://github.com/McSinyx/vim-octave.git
 [submodule "vim/.config/vim/pack/func/opt/Nvim-R"]
 	path = vim/.local/share/nvim/site/pack/func/opt/Nvim-R
 	url = https://github.com/jalvesaq/Nvim-R.git

@@ -6,13 +6,6 @@ set runtimepath+=$XDG_CONFIG_HOME/vim/after
 set runtimepath+=$XDG_CONFIG_HOME/vim/plugin
 set runtimepath+=$XDG_CONFIG_HOME/vim/ftplugin
 
-call plug#begin($XDG_CONFIG_HOME . '/vim/plugged')
-    Plug 'navarasu/onedark.nvim'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'tpope/vim-fugitive'
-call plug#end()
-
 " make make silent
 set makeprg=make\ -s
 " italic text
@@ -29,4 +22,10 @@ endfor
 highlight link Jump Function
 match Jump '<++>'
 
-colorscheme onedark
+if has('packages')
+    packadd! onedark.vim
+    colorscheme onedark
+endif
+
+filetype plugin indent on
+syntax on
