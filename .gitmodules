@@ -1,24 +1,29 @@
 [submodule "coc.nvim"]
-	path = vim/.config/vim/pack/func/opt/coc.nvim
+	path = vim/.local/share/nvim/site/pack/func/opt/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 [submodule "vim-fugitive"]
-	path = vim/.config/vim/pack/func/start/vim-fugitive
+	path = vim/.local/share/nvim/site/pack/func/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
 [submodule "vim-surround"]
-	path = vim/.config/vim/pack/func/start/vim-surround
+	path = vim/.local/share/nvim/site/pack/func/start/vim-surround
 	url = https://github.com/tpope/vim-surround
 [submodule "onedark.vim"]
-	path = vim/.config/vim/pack/look/opt/onedark.vim
+	path = vim/.local/share/nvim/site/pack/look/opt/onedark.vim
 	url = https://github.com/joshdick/onedark.vim
 [submodule "vim-commentary"]
-	path = vim/.config/vim/pack/func/start/vim-commentary
+	path = vim/.local/share/nvim/site/pack/func/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
 [submodule "phpcomplete.vim"]
-	path = vim/.config/vim/pack/func/opt/phpcomplete.vim
+	path = vim/.local/share/nvim/site/pack/func/opt/phpcomplete.vim
 	url = https://github.com/shawncplus/phpcomplete.vim
 [submodule "goyo.vim"]
-	path = vim/.config/vim/pack/look/opt/goyo.vim
+	path = vim/.local/share/nvim/site/pack/look/opt/goyo.vim
 	url = https://github.com/junegunn/goyo.vim
 [submodule "vim/.config/vim/pack/func/start/vim-octave"]
 	path = vim/.config/vim/pack/func/start/vim-octave
 	url = https://github.com/McSinyx/vim-octave.git
+[submodule "vim/.config/vim/pack/func/opt/Nvim-R"]
+	path = vim/.local/share/nvim/site/pack/func/opt/Nvim-R
+	url = https://github.com/jalvesaq/Nvim-R.git
+[submodule "Nvim-R"]
+	branch = stable

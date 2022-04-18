@@ -20,7 +20,7 @@ nnoremap <leader>c :w! \| !~/.local/bin/compiler.sh <c-r>%<CR><CR>
 nnoremap <leader>n :nohlsearch<CR>
 nnoremap <leader>o :only<CR>
 nnoremap <leader>p :!~/.local/bin/openup.sh <c-r>%<CR><CR>
-nnoremap <leader>r :!~/.local/bin/clean.sh <c-r>%<CR><CR>
+" nnoremap <leader>r :!~/.local/bin/clean.sh <c-r>%<CR><CR>
 nnoremap <leader>q :quit<CR>
 nnoremap <leader>w :write<CR>
 nnoremap <leader>x :xit<CR>

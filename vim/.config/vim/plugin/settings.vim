@@ -47,7 +47,7 @@ if has('folding')
 	set fillchars=fold:.
 	set foldtext=functions#foldtext()
 	set foldmethod=indent
-	set foldlevelstart=1               " force to use folds
+	set foldlevelstart=99
 endif
 
 if has('virtualedit')
