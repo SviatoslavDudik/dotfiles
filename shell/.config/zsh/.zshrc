@@ -83,3 +83,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+[ -f "$XDG_CONFIG_HOME/zsh/dev-setup" ] && source "$XDG_CONFIG_HOME/zsh/dev-setup"
+[ -f "$XDG_CONFIG_HOME/zsh/kitty" ] && source "$XDG_CONFIG_HOME/zsh/kitty"
+
+[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

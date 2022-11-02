@@ -1,7 +1,7 @@
 #!/bin/sh
 
-export PATH="$PATH:~/bin:~/.tools"
-export TERMINAL=gnome-terminal
+export PATH=$PATH:$HOME/bin
+export TERMINAL=kitty
 export BROWSER=firefox
 export MAIL="$HOME/Mail"
 export VISUAL=vim
